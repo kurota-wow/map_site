@@ -3,12 +3,22 @@
 
 /* mixins, variables, etc. */
 
-$gray-medium-light: #eaeaea;
-
 /* universal */
 
 body {
-  padding-top: 60px;
+  background: url(background1.jpg) no-repeat top / cover;
+  width: 100%;
+  min-height: 100vh;
+  position: relative;
+  padding-bottom: 120px;
+  box-sizing: border-box;
+}
+
+
+.container {
+  margin: 0;
+  padding: 0;
+  width: 100%;
 }
 
 section {
@@ -19,11 +29,138 @@ textarea {
   resize: vertical;
 }
 
-.center {
+#icon {
+  width: 50px;
+  margin-right: 10px;
+}
+
+/* home */
+
+.main {
   text-align: center;
-  h1 {
-    margin-bottom: 10px;
+  position: relative;
+  width: 88%;
+  .arealist-map a:hover {
+    opacity: 0.6;
+    transition-duration: 0.2s;
+    transform: translate(0,10px);
   }
+  #map {
+    width: 90%;
+    padding-right: 20%;
+    padding-left: 5%;
+    position: relative;
+  }
+  #map2 {
+    width: 85%;
+    padding-right: 5%;
+    position: absolute;
+    top: 0;
+    left: 3%;
+    opacity: .3;
+  }
+  .image {
+    width: 90%;
+    height: 100%;
+    position: absolute;
+    padding-right: 15%;
+    padding-left: 9%;
+    top: 0;
+    left: 0;
+  }
+  g#image2, g#image3, g#image4, g#image5 {
+    display: none;
+  }
+  g#image1.appear {
+    display: none;
+  }
+  g#image2.appear {
+    display: block;
+  }
+  g#image3.appear {
+    display: block;
+  }
+  g#image4.appear {
+    display: block;
+  }
+  g#image5.appear {
+    display: block;
+  }
+  .switch_btns {
+    position: absolute;
+    top: 20px;
+    right: 0;
+    display: inline-flex;
+    flex-direction: column;
+    width: 14%;
+    span {
+      font-weight: bold;
+      padding-bottom: 15px;
+      color:rgb(0, 0, 0);
+    }
+    .sepia {
+      filter: sepia(100%);
+      opacity: .6;
+    }
+    .button {
+      margin-bottom: 20%;
+      width: 100%;
+      cursor: pointer;
+      &:hover {
+        transform: scale(1.15,1.15);
+        transition: all  0.3s ease;
+      }
+      &:active {
+        transform: translate(0,2px);
+      }
+    }
+    
+  }
+}
+
+.main-contents {
+  margin: 50px 0;
+  .section-image {
+    height: 400px;
+    width: 100%;
+    background-color: rgb(126, 226, 244);
+    margin-bottom: 20px;
+    overflow:hidden;
+    position: relative;
+    #image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      cursor: pointer;
+    }
+    .section-title {
+      width: 40%;
+      background-color: rgba(250, 241, 228, 0.543);
+      position: absolute;
+      bottom: 50%;
+      left: 0;
+      padding-left: 20px;
+      h3 {
+        font-size: 3em;
+        color: rgba(5, 0, 0, 0.5);
+        &:first-letter {
+          font-size: 1.3em;
+          color: #ff943cc4;
+        }
+      }
+    }
+  }
+
+  .intro {
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px;
+    #icon {
+      width: 35px;
+      padding-bottom: 8px;
+    }
+  }
+  
 }
 
 /* typography */
@@ -40,12 +177,16 @@ h1 {
 }
 
 h2 {
-  font-size: 1.2em;
-  letter-spacing: -1px;
-  margin-bottom: 30px;
+  font-size: 4em;
+  letter-spacing: 5px;
+  padding: 30px;
   text-align: center;
-  font-weight: normal;
-  color: $gray-light;
+  font-weight: bold;
+  color: rgb(255, 255, 255);
+  text-shadow: 1px  1px 1px rgb(4, 3, 3),
+              -1px  1px 1px rgb(4, 3, 3),
+               1px -1px 1px rgb(4, 3, 3),
+              -1px -1px 1px rgb(4, 3, 3);
 }
 
 p {
@@ -58,41 +199,149 @@ p {
 
 #logo {
   float: left;
-  margin-right: 10px;
-  font-size: 1.7em;
-  color: white;
-  text-transform: uppercase;
-  letter-spacing: -1px;
-  padding-top: 9px;
+  width: 150px;
+  position: absolute;
+  top: 0;
+  left: 10px;
+}
+
+.navbar {
+  background: none;
+  border-bottom: none;
+  height: 100px;
+  padding: 30px 0 0 60px;
+  margin-bottom: 0;
+}
+
+.navbar-list {
+  float: right;
+  font-size: 20px;
+  margin-top: 10px;
   font-weight: bold;
-  &:hover {
-    color: white;
-    text-decoration: none;
+  li {
+    float: left;
+    list-style: none;
+    margin-right: 20px;
+    border-right: 2px white solid;
+    &:last-child {
+      border-right: none;
+    }
+    a {
+      margin-right: 25px;
+      text-decoration: none;
+      color: rgb(255, 255, 255);
+      text-shadow: 1px  1px 1px rgb(4, 3, 3),
+                  -1px  1px 1px rgb(4, 3, 3),
+                   1px -1px 1px rgb(4, 3, 3),
+                  -1px -1px 1px rgb(4, 3, 3);
+      &:hover {
+        color: rgb(248, 244, 237);
+        transition : 0.3s;
+        text-shadow: 2px  2px 5px rgb(241, 157, 96),
+                    -2px  2px 5px rgb(241, 157, 96),
+                     2px -2px 5px rgb(241, 157, 96),
+                    -2px -2px 5px rgb(241, 157, 96);
+      }
+    }
+    
   }
 }
 
 /* footer */
 
 footer {
-  margin-top: 45px;
-  padding-top: 5px;
-  border-top: 1px solid $gray-medium-light;
-  color: $gray-light;
+  color: white;
+  text-align: center;
+  .wrapper {
+    height: 170px;
+    padding: 20px;
+    background-color: rgb(127, 192, 222);
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    left: 0;
+  }
   a {
-    color: $gray;
+    color: white;
     &:hover {
-      color: $gray-darker;
+      color: black;
+      text-decoration: none;
     }
   }
-  small {
-    float: left;
-  }
   ul {
-    float: right;
     list-style: none;
+    text-decoration: none;
+    text-align: left;
     li {
+      padding: 5px 33px 5px 0;
+    }
+  }
+}
+
+/* about help contact */
+
+.site-back {
+  height: 600px;
+  width: 100%;
+  background-color: white;
+  border-radius: 4px;
+  box-shadow: 0px -2px 5px 2px rgba(23, 92, 142, 0.423);
+  padding: 30px;
+  text-align: center;
+  h1 {
+    border-bottom: 8px solid orange;
+    padding-bottom: 10px;
+    display: inline-block;
+  }
+  .site-contents {
+     width: 80%;
+     margin: 0 auto;
+     display: flex;
+     justify-content: space-evenly;
+     ul {
+      list-style: none;
+      margin: 60px 0;
+      padding: 0;
+      text-align: left;
       float: left;
-      margin-left: 15px;
+      p {
+        margin-left: 30px;
+        font-size: 18px;
+      }
+      li {
+        margin: 30px;
+      }
+    }
+  }
+  .help-contents {
+    width: 80%;
+    margin: 0 auto;
+    dl {
+      margin-top: 30px;
+      div {
+        padding-bottom: 30px;
+        text-align: left;
+        dt {
+          padding: 4px;
+          cursor: pointer;
+          user-select: none;
+          font-size: 20px;
+          background-color: antiquewhite;
+          &::before {
+            content: 'Q';
+            padding-right: 10px;
+          }
+        }
+        dd {
+          padding: 15px;
+          margin: 0;
+          font-size: 16px;
+          &::before {
+            content: 'A';
+            padding-right: 10px;
+          }
+        }
+      }
     }
   }
 }

@@ -1,11 +1,13 @@
-<header class="navbar navbar-fixed-top navbar-inverse">
+<header class="navbar">
   <div class="container">
-    <%= link_to "ぐるぐるマップ愛媛", root_path, id: "logo" %>
+    <%= link_to image_tag("logo.png", alt: "ぐるぐるマップ愛媛", id: "logo"), root_path %>
     <nav>
-      <ul class="nav navbar-nav navbar-right">
-        <li><%= link_to "トップページ",   root_path %></li>
-        <li><%= link_to "FAQ",   help_path %></li>
-        <li><%= link_to "ログイン", '#' %></li>
+      <ul class="navbar-list">
+        <li><%= link_to "ぐるぐるマップ", root_path %></li>
+        <li><%= link_to "スポット一覧", '#' %></li>
+        <li><%= link_to "イベント", '#' %></li>
+        <li><%= link_to "えひめフォト", '#' %></li>
+        <li><%= link_to "おすすめルート", '#' %></li>
       </ul>
     </nav>
   </div>

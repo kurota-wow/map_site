@@ -1,3 +1,30 @@
 <% provide(:title, "サイトマップ") %>
-<h1>StaticPages#about</h1>
-<p>Find me in app/views/static_pages/about.html.erb</p>
+<div class="site-back">
+  <h1>サイトマップ</h1>
+  <div class="site-contents">
+    <ul>
+      <p>愛媛のスポットを探す</p>
+      <li>
+        <%= link_to "ぐるぐるマップから探す",   root_path %>
+      </li>
+      <li>
+        <%= link_to "一覧から探す",   root_path %>
+      </li>
+      <li>
+        <%= link_to "イベントから探す",   root_path %>
+      </li>
+      <li>
+        <%= link_to "おすすめルートから探す",   root_path %>
+      </li>
+    </ul>
+    <ul>
+      <p>ぐるぐるマップえひめについて</p>
+      <li>
+        <%= link_to "お問い合わせ",   root_path %>
+      </li>
+      <li>
+        <%= link_to "よくある質問",   root_path %>
+      </li>
+    </ul>
+  </div>
+</div>
