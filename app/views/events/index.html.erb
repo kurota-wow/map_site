@@ -1,0 +1,25 @@
+<div class="site-back">
+  <div class="season-title">
+    <ol id="season" class="tab-list">
+      <li id="spring" class="border tab tab-active">春</li>
+      <li id="summer" class="tab">夏</li>
+      <li id="autumn" class="tab">秋</li>
+      <li id="winter"class="tab">冬</li>
+    </ol>
+  </div>
+  <div class="tabbox-contents">
+    <div class="tabbox box-show" id="spring-box">
+      <%= render 'events/list', events: @spring %>
+    </div>
+    <div class="tabbox" id="summer-box">
+      <%= render 'events/list', events: @summer %>
+    </div>
+    <div class="tabbox" id="autumn-box">
+      <%= render 'events/list', events: @autumn %>
+    </div>
+    <div class="tabbox" id="winter-box">
+      <%= render 'events/list', events: @winter %>
+    </div>
+  </div>
+  
+</div>
