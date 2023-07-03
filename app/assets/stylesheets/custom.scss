@@ -24,6 +24,13 @@ body {
 .container {
   width: 100%;
 }
+.back {
+  background-color: #ffffff;
+  min-height: 500px;
+  padding: 30px;
+  box-shadow: 0px -5px 10px #ffffffa0;
+  border-radius: 4px;
+}
 
 section {
   overflow: auto;
@@ -208,6 +215,7 @@ p {
   top: 0;
   left: 10px;
   min-width: 100px;
+  max-width: 130px;
 }
 
 .navbar {
@@ -310,12 +318,8 @@ footer {
 /* about help contact */
 
 .site-back {
-  width: 100%;
-  background-color: white;
-  border-radius: 4px;
-  padding: 30px;
   text-align: center;
-  margin-top: 10px;
+
   h1 {
     border-bottom: 8px solid orange;
     padding-bottom: 10px;
@@ -328,7 +332,7 @@ footer {
      justify-content: space-evenly;
      ul {
       list-style: none;
-      margin: 60px 0;
+      margin: 40px 0;
       padding: 0;
       text-align: left;
       float: left;
@@ -570,4 +574,37 @@ footer {
   font-size: 13px;
   margin-top: 18px;
   padding-left: 3px;
+}
+
+/* spot */
+
+.spot {
+
+  .spot-contents {
+    background-color: #ddd;
+    display: inline-block;
+    width: 300px;
+    height: 300px;
+  }
+  .spot-details {
+    display: block;
+    height: 410px;
+    li {
+      color: rgba(109, 109, 109, 0.682);
+      padding: 25px 20px 2px;
+      font-family: "M PLUS Rounded 1c";
+
+    }
+    .spot-name {
+      font-size: 4.5em;
+      border-bottom: solid 1px gray;
+      display: inline-block;
+    }
+    .spot-address {
+      font-size: 3em;
+    }
+    .spot-content {
+      font-size: 2em;
+    }
+  }
 }

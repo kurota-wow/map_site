@@ -1,0 +1,10 @@
+<div class="spot back">
+  <% @spots.each do |spot| %>
+    <div class="spot-contents">
+      <p><%= spot.name %></p>
+      <p><%= spot.address %></p>
+      <p><%= spot.content %></p>
+      <span><%= link_to "くわしく見る", spot_path(spot.id) %></span>
+    </div>
+  <% end %>
+</div>

@@ -1,10 +1,9 @@
-<li id="event-<%= @event.id %>">
-  <%# <%= link_to gravatar_for(micropost.user, size: 50), micropost.user %>
-  <span class="event-name"><%= @event.name %></span>
-  <span class="event-address"><%= @event.address %></span>
-  <span class="event-season"><%= @event.season %></span>
-  <span class="event-content"><%= @event.content %></span>
-  <span class="timestamp">
-    Posted <%= time_ago_in_words(@event.created_at) %> ago.
-  </span>
-</li>
+<div class="back">
+  <ul id="event-<%= @event.id %>">
+    <li class="event-name"><%= @event.name %></li>
+    <li class="event-address"><%= @event.address %></li>
+    <li class="event-season"><%= @event.season %></li>
+    <li class="event-content"><%= @event.content %></li>
+    <li><%= link_to "←戻る", '#', onclick: "history.back()" %></li>
+  </ul>
+</div>

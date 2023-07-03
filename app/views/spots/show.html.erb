@@ -1,0 +1,8 @@
+<div class="spot back">
+  <ul id="spot-<%= @spot.id %>" class="spot-details">
+    <li class="spot-name"><%= @spot.name %></li>
+    <li class="spot-address"><%= @spot.address %></li>
+    <li class="spot-content"><%= @spot.content %></li>
+    <li><%= link_to "←戻る", '#', onclick: "history.back()" %></li>
+  </ul>
+</div>

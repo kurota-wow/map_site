@@ -5,5 +5,6 @@
     <p><%= event.date %></p>
     <p><%= event.season %></p>
     <p><%= event.content %></p>
+    <span><%= link_to "くわしく見る", event_path(event.id) %></span>
   </div>
 <% end %>
