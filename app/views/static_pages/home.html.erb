@@ -2023,7 +2023,7 @@
         ぐるぐるマップガイド
       </h2>
       <p>
-        
+        <%= button_to "ログアウト", destroy_user_session_path, method: :delete %>
       </p>
       <div class="section-image">
         <%= image_tag("onsen.jpg", alt: "道後温泉", id: "image") %>
