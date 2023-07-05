@@ -1,0 +1,35 @@
+<% provide(:title, '確認画面') %>
+<div class="back form">
+  <div class="site-back">
+    <h1>確認画面</h1>
+  </div>
+  
+  <%= form_for @contact, :url => contact_thanks_path do |f| %>
+    <div class="table">
+      <table>
+        <tr class="form-item">
+          <th>名前</th>
+          <td>
+            <%= f.hidden_field :name %>
+            <%= @contact.name %>
+          </td>
+        </tr>
+        <tr class="form-item">
+          <th>メールアドレス</th>
+          <td>
+            <%= f.hidden_field :email %>
+            <%= @contact.email %>
+          </td>
+        </tr>
+        <tr class="form-item">
+          <th>お問い合わせ内容</th>
+          <td>
+            <%= f.hidden_field :message %>
+            <%= simple_format(@contact.message) %>
+          </td>
+        </tr>
+      </table>
+      <%= f.submit '送信', :class => 'btn btn-primary' %>
+    </div>
+  <% end %>
+</div>

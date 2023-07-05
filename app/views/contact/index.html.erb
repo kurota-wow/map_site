@@ -1,0 +1,35 @@
+<% provide(:title, 'お問い合わせ') %>
+<div class="back form">
+  <%= form_for @contact, :url => contact_confirm_path do |f| %>
+    <div class="site-back">
+      <h1>お問い合わせ</h1>
+    </div>
+    <% if @contact.errors.any? %>
+      <div class="alert alert-danger" role="alert">
+        <strong>入力内容にエラーがあります</strong>
+        <ul>
+          <% @contact.errors.each do |attr, msg| %>
+            <li><%= msg %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+    <div class="table">
+      <table>
+        <tr class="form-item">
+          <th>名前<span class="text-danger">（必須）</span></th>
+          <td><%= f.text_field :name , placeholder: "例）ぐるぐる 太郎"%></td>
+        </tr>
+        <tr class="form-item">
+          <th>メールアドレス<span class="text-danger">（必須）</span></th>
+          <td><%= f.text_field :email, placeholder: "例）email@example.com" %></td>
+        </tr>
+        <tr class="form-item">
+          <th>お問い合わせ内容<span class="text-danger">（必須） 100文字まで</span></th>
+          <td><%= f.text_area :message, placeholder: "例）掲載内容について・・・" %></td>
+        </tr>
+      </table>
+      <%= f.submit '確認', class: 'btn btn-primary' %>
+    </div>
+  <% end %>
+</div>

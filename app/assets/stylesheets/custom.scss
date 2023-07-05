@@ -608,3 +608,46 @@ footer {
     }
   }
 }
+
+/* contact form */
+.form {
+  color: #000;
+  .table {
+    width: 400px;
+    margin: 0 auto;
+    input[type="submit"]{
+      width: 400px;
+      font-size: 17px;
+      padding: 10px;
+      margin: 20px 0;
+    }
+    table {
+      width: 100%;
+      .form-item {
+        td, th {
+          border: none;
+          padding: 10px 0 5px 0;
+          width: 100%;
+          display: inline-block;
+        }
+        input[type="text"]{
+          width: 100%;
+          max-width: 400px;
+          height: 20px;
+          padding: 15px;
+        }
+        textarea{
+          width: 100%;
+          max-width: 400px;
+          height: 60px;
+          padding: 10px;
+        }
+      }
+    }
+    
+  }
+  .thanks-text {
+    text-align: center;
+    margin-top: 50px;
+  }
+}
