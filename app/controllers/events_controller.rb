@@ -1,6 +1,5 @@
 class EventsController < ApplicationController
   def index
-    @events = Event.all
     @spring = Event.where(season: "春")
     @summer = Event.where(season: "夏")
     @autumn = Event.where(season: "秋")

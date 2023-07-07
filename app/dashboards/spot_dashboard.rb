@@ -13,6 +13,7 @@ class SpotDashboard < Administrate::BaseDashboard
     content: Field::Text,
     image: Field::String,
     name: Field::String,
+    city: Field::String,
     created_at: Field::DateTime,
     updated_at: Field::DateTime,
   }.freeze
@@ -27,6 +28,7 @@ class SpotDashboard < Administrate::BaseDashboard
     address
     content
     image
+    city
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES
@@ -37,6 +39,7 @@ class SpotDashboard < Administrate::BaseDashboard
     content
     image
     name
+    city
     created_at
     updated_at
   ].freeze
@@ -49,6 +52,7 @@ class SpotDashboard < Administrate::BaseDashboard
     content
     image
     name
+    city
   ].freeze
 
   # COLLECTION_FILTERS
