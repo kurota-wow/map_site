@@ -1,10 +1,7 @@
 <% events.each do |event| %>
-  <div class="event">
-    <p><%= event.name %></p>
-    <p><%= event.address %></p>
-    <p><%= event.date %></p>
-    <p><%= event.season %></p>
-    <p><%= event.content %></p>
-    <span><%= link_to "くわしく見る", event_path(event.id) %></span>
-  </div>
+  <%= link_to event_path(event.id) do %>
+    <div class="event">
+      <p><%= event.name %>   <span><%= event.address %></span></p>
+    </div>
+  <% end %>
 <% end %>

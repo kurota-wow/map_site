@@ -10,16 +10,24 @@
   </div>
   <div class="tabbox-contents">
     <div class="tabbox box-show" id="spring-box">
-      <%= render 'events/list', events: @spring %>
+      <div class="season-image spring">
+        <%= render 'events/list', events: @spring %>
+      </div>
     </div>
     <div class="tabbox" id="summer-box">
-      <%= render 'events/list', events: @summer %>
+      <div class="season-image summer">
+        <%= render 'events/list', events: @summer %>
+      </div>
     </div>
     <div class="tabbox" id="autumn-box">
-      <%= render 'events/list', events: @autumn %>
+      <div class="season-image autumn">
+        <%= render 'events/list', events: @autumn %>
+      </div>
     </div>
     <div class="tabbox" id="winter-box">
-      <%= render 'events/list', events: @winter %>
+      <div class="season-image winter">
+        <%= render 'events/list', events: @winter %>
+      </div>
     </div>
   </div>
   

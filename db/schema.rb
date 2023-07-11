@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_07_05_062631) do
+ActiveRecord::Schema[7.0].define(version: 2023_07_07_122730) do
   create_table "events", force: :cascade do |t|
     t.text "content"
     t.string "name"
@@ -24,7 +24,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_05_062631) do
 
   create_table "spots", force: :cascade do |t|
     t.string "name"
-    t.string "image"
     t.string "address"
     t.text "content"
     t.datetime "created_at", null: false
@@ -32,6 +31,11 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_05_062631) do
     t.string "city"
     t.float "latitude"
     t.float "longitude"
+    t.string "category"
+    t.string "image_file_name"
+    t.string "image_content_type"
+    t.bigint "image_file_size"
+    t.datetime "image_updated_at"
   end
 
   create_table "users", force: :cascade do |t|

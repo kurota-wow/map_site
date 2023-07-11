@@ -58,6 +58,11 @@ gem "gmaps4rails"
 gem "geocoder"
 gem 'google_places'
 
+gem 'administrate-field-paperclip'
+gem 'kt-paperclip'
+
+gem 'aws-sdk-s3'
+
 group :development, :test do
   gem "sqlite3", "1.4.2"
   gem "debug", platforms: %i[ mri mingw x64_mingw ]

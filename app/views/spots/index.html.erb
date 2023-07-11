@@ -11,12 +11,14 @@
       <% end %>
     </div>
   </div>
-  <% @spots.each do |spot| %>
-    <div class="spot-contents">
-      <p><%= spot.name %></p>
-      <p><%= spot.address %></p>
-      <p><%= spot.content %></p>
-      <span><%= link_to "くわしく見る", spot_path(spot.id) %></span>
-    </div>
-  <% end %>
+  <div class="spot-content-box">
+    <% @spots.each do |spot| %>
+      <div class="spot-contents">
+        <%= link_to spot_path(spot.id) do %>
+          <p class="img"><%= image_tag spot.image.url(:medium) %></p>
+          <p class="name"><%= spot.name %></p>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
 </div>
