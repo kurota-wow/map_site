@@ -17,7 +17,9 @@ module Admin
     # end
 
     # The result of this lookup will be available as `requested_resource`
-
+    def scoped_resource
+      resource_class.with_attached_icon
+    end
     # Override this if you have certain roles that require a subset
     # this will be used to set the records shown on the `index` action.
     #
@@ -39,7 +41,11 @@ module Admin
     #     permit(dashboard.permitted_attributes).
     #     transform_values { |value| value == "" ? nil : value }
     # end
-
+    def destroy_icon
+      icon = requested_resource.icon
+      icon.purge
+      redirect_back(fallback_location: requested_resource)
+    end
     # See https://administrate-prototype.herokuapp.com/customizing_controller_actions
     # for more information
   end

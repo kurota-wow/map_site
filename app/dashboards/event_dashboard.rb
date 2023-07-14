@@ -12,7 +12,7 @@ class EventDashboard < Administrate::BaseDashboard
     address: Field::String,
     content: Field::Text,
     date: Field::String,
-    image: Field::String,
+    image: Field::ActiveStorage,
     name: Field::String,
     season: Field::String,
     created_at: Field::DateTime,
@@ -29,6 +29,7 @@ class EventDashboard < Administrate::BaseDashboard
     address
     content
     date
+    image
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES

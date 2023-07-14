@@ -2,8 +2,12 @@ Rails.application.routes.draw do
   devise_for :users
 
   namespace :admin do
-    resources :events
-    resources :spots
+    resources :events do
+      delete :image, on: :member, action: :destroy_image
+    end
+    resources :spots do
+      delete :icon, on: :member, action: :destroy_icon
+    end
     root to: "events#index"
   end
 

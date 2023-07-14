@@ -12,10 +12,12 @@
     </div>
   </div>
   <div class="spot-content-box">
-    <% @spots.each do |spot| %>
+    <% @spots.with_attached_icon.each do |spot| %>
       <div class="spot-contents">
         <%= link_to spot_path(spot.id) do %>
-          <p class="img"><%= image_tag spot.image.url(:medium) %></p>
+          <% if spot.icon.attached? %>
+            <p class="img"><%= image_tag spot.icon.variant(:thumb) %></p>
+          <% end %>
           <p class="name"><%= spot.name %></p>
         <% end %>
       </div>

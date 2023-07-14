@@ -11,7 +11,8 @@ class SpotDashboard < Administrate::BaseDashboard
     id: Field::Number,
     address: Field::String,
     content: Field::Text,
-    image: Field::Paperclip,
+    url: Field::Text,
+    icon: Field::ActiveStorage,
     category: Field::String,
     name: Field::String,
     city: Field::String,
@@ -28,9 +29,10 @@ class SpotDashboard < Administrate::BaseDashboard
     id
     address
     content
-    image
+    icon
     city
     category
+    url
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES
@@ -39,9 +41,10 @@ class SpotDashboard < Administrate::BaseDashboard
     id
     address
     content
-    image
+    icon
     name
     city
+    url
     category
     created_at
     updated_at
@@ -53,9 +56,10 @@ class SpotDashboard < Administrate::BaseDashboard
   FORM_ATTRIBUTES = %i[
     address
     content
-    image
+    icon
     name
     city
+    url
     category
   ].freeze
 
