@@ -1,19 +1,20 @@
 <footer class="footer">
+  <div class="wave">
+    <canvas id="waveCanvas">
+
+    </canvas>
+  </div>
   <div class="wrapper">
-    <small>
-      ©︎2023 ぐるぐるマップえひめ
-    </small>
     <nav>
       <ul>
         <li><%= link_to "サイトマップ", about_path %></li>
         <li><%= link_to "お問い合わせ", contact_path %></li>
         <li><%= link_to "よくある質問", help_path %></li>
-        <li>      
-        <% if user_signed_in? %>
-          <%= link_to "アカウント情報編集", edit_user_registration_path, class: "user-edit-btn" %>
-        <% end %>
-        </li>
       </ul>
     </nav>
+
   </div>
+  <small>
+    ©︎2023 ぐるぐるマップえひめ
+  </small>
 </footer>

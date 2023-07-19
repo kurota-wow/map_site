@@ -65,6 +65,8 @@ gem "image_processing"
 
 gem 'mini_magick'
 
+gem 'jquery-rails'
+
 group :development, :test do
   gem "sqlite3", "1.4.2"
   gem "debug", platforms: %i[ mri mingw x64_mingw ]

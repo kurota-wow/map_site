@@ -363,6 +363,7 @@ DEPENDENCIES
   image_processing
   importmap-rails
   jbuilder
+  jquery-rails
   mini_magick
   minitest (= 5.15.0)
   minitest-reporters (= 1.5.0)

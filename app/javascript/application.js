@@ -2,5 +2,7 @@
 import { Turbo } from "@hotwired/turbo-rails"
 Turbo.session.drive = false
 import "controllers"
-
-import './custom/test.js';
+import jQuery from "jquery";
+window.$ = window.jQuery = jQuery;
+import("./custom/main.js")
+import("./custom/wave.js")

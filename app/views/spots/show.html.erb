@@ -5,9 +5,9 @@
     <li class="spot-address"><%= @spot.address %></li>
     <li class="spot-content"><%= @spot.content %></li>
     <% if @spot.url.present? %>
-      <li><%= link_to "詳しくはこちら", @spot.url, target: "_blank", rel: "noopener" %></li>
+      <li class="spot-url" ><%= link_to "詳しくはこちら", @spot.url, target: "_blank", rel: "noopener"%></li>
     <% end %>
-    <li><%= link_to "←戻る", '#', onclick: "history.back()" %></li>
+    <li><%= link_to "←戻る", '#', onclick: "history.back()", class: "back-to" %></li>
   </ul>
   <div id="map" style='width: 60%; height: 400px;'></div>
 </div>
