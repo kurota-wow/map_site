@@ -1,5 +1,6 @@
 class Event < ApplicationRecord
   validate :verify_file_type
+  validates :name, presence: true
   has_one_attached :image do |attachable|
     attachable.variant :thumb, resize_to_limit: [700, 500]
   end

@@ -3,7 +3,6 @@ $(function(){
   $('.responsive_btn').on('click', function () {
     $('.header_nav').toggleClass('menu_active');
   });
-
   $('#btn1').on('click', function () {
     $('#image1').toggleClass('appear');
     $('#btn1').toggleClass('sepia');
@@ -55,8 +54,6 @@ $(function(){
     $('#winter').addClass('border');
     $('#winter-box').addClass('box-show');
   });
-
-
 
   function slider() {
     var $sliderWrap = $('.slideshow'),
@@ -212,27 +209,20 @@ $(function(){
   }
   slider();
 
-  
   const targets = document.querySelectorAll('.target');
-
   function callback(entries, obs) {
-
     entries.forEach(entry => {
       if (!entry.isIntersecting) {
         return;
       }
-  
       entry.target.classList.add('appear');
       obs.unobserve(entry.target);
     });
   }
-
   const options = {
     threshold: 0.2,
   };
-
   const observer = new IntersectionObserver(callback, options);
-
   targets.forEach(target => {
     observer.observe(target);
   });

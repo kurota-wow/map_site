@@ -18,11 +18,9 @@ Rails.application.routes.draw do
   resources :events, only: [:index, :show]
   resources :spots, only: [:index, :show]
 
-  get   'contact'         => 'contact#index'
-  get 'contact/confirm'
-  get 'contact/thanks'
-  post  'contact/confirm' => 'contact#confirm'
-  post  'contact/thanks'  => 'contact#thanks'
+  resources :contact, only: [:new, :create]
+  post 'contact/confirm', to: 'contact#confirm', as: 'confirm'
+  get 'thanks', to: 'contact#thanks', as: 'thanks'
 
   get  "/routes",   to: "route_search#index"
 end

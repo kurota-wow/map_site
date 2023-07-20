@@ -6,3 +6,4 @@ import jQuery from "jquery";
 window.$ = window.jQuery = jQuery;
 import("./custom/main.js")
 import("./custom/wave.js")
+import "@fortawesome/fontawesome-free"

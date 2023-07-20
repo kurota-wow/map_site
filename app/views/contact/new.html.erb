@@ -1,6 +1,6 @@
 <% provide(:title, 'お問い合わせ') %>
 <div class="back form">
-  <%= form_for @contact, :url => contact_confirm_path do |f| %>
+  <%= form_for @contact, :url => confirm_path do |f| %>
     <div class="site-back">
       <h1>お問い合わせ</h1>
     </div>
@@ -8,7 +8,7 @@
       <div class="alert alert-danger" role="alert">
         <strong>入力内容にエラーがあります</strong>
         <ul>
-          <% @contact.errors.each do |attr, msg| %>
+          <% @contact.errors.full_messages.each do |msg| %>
             <li><%= msg %></li>
           <% end %>
         </ul>
@@ -17,7 +17,7 @@
     <div class="table">
       <table>
         <tr class="form-item">
-          <th>名前<span class="text-danger">（必須）</span></th>
+          <th>お名前<span class="text-danger">（必須）</span></th>
           <td><%= f.text_field :name , placeholder: "例）ぐるぐる 太郎"%></td>
         </tr>
         <tr class="form-item">
@@ -29,7 +29,7 @@
           <td><%= f.text_area :message, placeholder: "例）掲載内容について・・・" %></td>
         </tr>
       </table>
-      <%= f.submit '確認', class: 'btn btn-primary' %>
+      <%= f.submit '入力内容確認', class: 'btn btn-primary' %>
     </div>
   <% end %>
 </div>

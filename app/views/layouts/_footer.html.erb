@@ -1,20 +1,35 @@
 <footer class="footer">
   <div class="wave">
     <canvas id="waveCanvas">
-
     </canvas>
   </div>
   <div class="wrapper">
     <nav>
       <ul>
         <li><%= link_to "サイトマップ", about_path %></li>
-        <li><%= link_to "お問い合わせ", contact_path %></li>
+        <li><%= link_to "お問い合わせ", new_contact_path %></li>
         <li><%= link_to "よくある質問", help_path %></li>
       </ul>
     </nav>
-
   </div>
   <small>
     ©︎2023 ぐるぐるマップえひめ
   </small>
+  <div class="sns-icon">
+    <span>
+      <%= link_to "https://twitter.com/share?url=#{request.url}", title: 'Twitter', target: '_blank' do %>
+        <i class="fab fa-twitter"></i>
+      <% end %>
+    </span>
+    <span>
+      <%= link_to "http://www.facebook.com/sharer/sharer.php?u=&t=#{request.url}", target: '_blank' do %>
+        <i class="fab fa-facebook"></i>
+      <% end %>
+    </span>
+    <span>
+      <%= link_to "http://www.pinterest.com/pin/create/button/?url=&media=#{request.url}", target: '_blank' do %>
+        <i class="fab fa-pinterest"></i>
+      <% end %>
+    </span>
+  </div>
 </footer>
