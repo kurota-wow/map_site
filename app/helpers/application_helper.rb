@@ -1,11 +1,7 @@
 module ApplicationHelper
-  # ページごとの完全なタイトルを返す
-  def full_title(page_title = '')
-    base_title = "ぐるぐるマップ愛媛"
-    if page_title.empty?
-      base_title
-    else
-      "#{page_title} - #{base_title}"
-    end
+  BASE_TITLE = "ぐるぐるマップ愛媛".freeze
+
+  def full_title(page_title)
+    page_title.present? ? "#{page_title} - #{BASE_TITLE}" : BASE_TITLE
   end
 end

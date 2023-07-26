@@ -10,7 +10,6 @@ class SpotsController < ApplicationController
     if params[:keyword].present?
       @spots = @spots.get_keyword params[:keyword]
     end
-  
   end
 
   def show

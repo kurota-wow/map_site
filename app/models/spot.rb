@@ -4,6 +4,8 @@ class Spot < ApplicationRecord
   validate :verify_file_type
   validates :name, presence: true
   validates :address, presence: true
+  validates :city, presence: true
+  validates :category, presence: true
   has_one_attached :icon do |attachable|
     attachable.variant :thumb, resize_to_limit: [500, 500]
   end

@@ -13,7 +13,12 @@ module TravelSite
     config.active_storage.variant_processor = :mini_magick
     config.i18n.default_locale = :ja
     # Configuration for the application, engines, and railties goes here.
-    #
+    config.generators do |g| 
+      g.test_framework :rspec,
+        view_specs: false, 
+        helper_specs: false, 
+        routing_specs: false
+    end
     # These settings can be overridden in specific environments using the files
     # in config/environments, which are processed later.
     #
