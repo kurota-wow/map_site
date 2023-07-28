@@ -1,4 +1,5 @@
 <% provide(:title, "イベント詳細") %>
+
 <div class="back event-details">
   <ul>
     <li class="event-name"><%= @event.name %></li>
@@ -6,6 +7,7 @@
     <li class="event-content"><%= @event.content %></li>
     <li><%= link_to "←戻る", '#', onclick: "history.back()", class: "back-to" %></li>
   </ul>
+
   <div class="event-image">
     <% if @event.image.attached? %>
       <%= image_tag @event.image.variant(resize_to_limit: [700, 500]) %>

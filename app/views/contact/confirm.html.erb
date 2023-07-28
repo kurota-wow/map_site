@@ -1,8 +1,10 @@
 <% provide(:title, '確認画面') %>
+
 <div class="back form">
   <div class="site-back">
     <h1>確認画面</h1>
   </div>
+
   <%= form_for @contact, url: contact_index_path do |f| %>
     <div class="table">
       <table>
@@ -29,7 +31,7 @@
         </tr>
       </table>
       <%= f.submit '送信', :class => 'btn btn-primary' %>
-      <%= f.submit '戻る', name: 'back', :class => 'btn btn-primary' %>
+      <%= f.submit '戻る', name: 'back', class: 'btn btn-primary' %>
     </div>
   <% end %>
 </div>

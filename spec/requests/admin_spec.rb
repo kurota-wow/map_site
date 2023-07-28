@@ -1,16 +1,17 @@
 require 'rails_helper'
-RSpec.describe "Admin", type: :request do
-  before do
-    @user = FactoryBot.create(:user)
-  end
 
+RSpec.describe "Admin" do
   describe "GET /admin" do
     context "when logged in" do
+      before do
+        user = create(:user)
+        sign_in user
+      end
+
       it "responds successfully" do
-        sign_in @user
         get admin_root_path
         expect(response).to be_successful
-        expect(response).to have_http_status(200)
+        expect(response).to have_http_status(:ok)
       end
     end
 

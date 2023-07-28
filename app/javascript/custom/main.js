@@ -1,58 +1,34 @@
 $(function(){
-
   $('.responsive_btn').on('click', function () {
     $('.header_nav').toggleClass('menu_active');
   });
-  $('#btn1').on('click', function () {
-    $('#image1').toggleClass('appear');
-    $('#btn1').toggleClass('sepia');
+
+  $('.switch_btns').on('click', '.button', function() {
+    const btnId = $(this).attr('id');
+    const imageId = `#image${btnId.slice(-1)}`;
+    $(imageId).toggleClass('appear');
+    $(this).toggleClass('sepia');
   });
-  $('#btn2').on('click', function () {
-    $('#image2').toggleClass('appear');
-    $('#btn2').toggleClass('sepia');
-  });
-  $('#btn3').on('click', function () {
-    $('#image3').toggleClass('appear');
-    $('#btn3').toggleClass('sepia');
-  });
-  $('#btn4').on('click', function () {
-    $('#image4').toggleClass('appear');
-    $('#btn4').toggleClass('sepia');
-  });
-  $('#btn5').on('click', function () {
-    $('#image5').toggleClass('appear');
-    $('#btn5').toggleClass('sepia');
+  
+  $(document).ready(function () {
+    $(".tabbox").removeClass("box-show");
+    $('#spring-box').addClass("box-show");
+    $(".tab").on("click", function () {
+      const season = $(this).data("season");
+      $(".tab").removeClass("border");
+      $(".tabbox").removeClass("box-show");
+      $(this).addClass("border");
+      $(`#${season}-box`).addClass("box-show");
+    });
   });
 
-  function show() {
-    $('#spring').removeClass('border');
-    $('#summer').removeClass('border');
-    $('#autumn').removeClass('border');
-    $('#winter').removeClass('border');
-    $('#spring-box').removeClass('box-show');
-    $('#summer-box').removeClass('box-show');
-    $('#autumn-box').removeClass('box-show');
-    $('#winter-box').removeClass('box-show');
-  }
-  $('#spring').on('click', function () {
-    show();
-    $('#spring').addClass('border');
-    $('#spring-box').addClass('box-show');
-  });
-  $('#summer').on('click', function () {
-    show();
-    $('#summer').addClass('border');
-    $('#summer-box').addClass('box-show');
-  });
-  $('#autumn').on('click', function () {
-    show();
-    $('#autumn').addClass('border');
-    $('#autumn-box').addClass('box-show');
-  });
-  $('#winter').on('click', function () {
-    show();
-    $('#winter').addClass('border');
-    $('#winter-box').addClass('box-show');
+  $(function() {
+    $('.button').on('click', function () {
+      $(this).addClass('active');
+    });
+    $('.button').on('mouseout', function () {
+      $(this).removeClass('active');
+    });
   });
 
   function slider() {
@@ -133,7 +109,6 @@ $(function(){
     function changeSlide() {
 		var duration = 200;
     resizeSlide();
-
 		if(currentIndex == slideLength){
 			currentIndex = 0;
 			$slider.animate({
@@ -209,22 +184,38 @@ $(function(){
   }
   slider();
 
-  const targets = document.querySelectorAll('.target');
-  function callback(entries, obs) {
-    entries.forEach(entry => {
-      if (!entry.isIntersecting) {
-        return;
-      }
-      entry.target.classList.add('appear');
-      obs.unobserve(entry.target);
+  $(function() {
+    const targets = $('.target');
+  
+    const observer = new IntersectionObserver((entries, obs) => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) {
+          return;
+        }
+        $(entry.target).addClass('appear');
+        obs.unobserve(entry.target);
+      });
+    }, { threshold: 0.2 });
+  
+    targets.each((index, target) => {
+      observer.observe(target);
     });
-  }
-  const options = {
-    threshold: 0.2,
-  };
-  const observer = new IntersectionObserver(callback, options);
-  targets.forEach(target => {
-    observer.observe(target);
+  });
+
+  $(function() {
+    const targets = $('.target');
+    const observer = new IntersectionObserver((entries, obs) => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) {
+          return;
+        }
+        $(entry.target).addClass('appear');
+        obs.unobserve(entry.target);
+      });
+    }, { threshold: 0.2 });
+    targets.each((index, target) => {
+      observer.observe(target);
+    });
   });
 });
 

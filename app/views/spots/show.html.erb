@@ -1,4 +1,5 @@
 <% provide(:title, "スポット詳細") %>
+
 <div class="spot back">
   <ul class="spot-details">
     <li class="spot-name"><%= @spot.name %></li>
@@ -9,8 +10,10 @@
     <% end %>
     <li><%= link_to "←戻る", '#', onclick: "history.back()", class: "back-to" %></li>
   </ul>
+
   <div id="map" style='width: 60%; height: 400px;'></div>
 </div>
+
 <script type="text/javascript">
 let map;
 let marker;
@@ -26,18 +29,13 @@ function initMap() {
         center: new google.maps.LatLng(latlng),
         zoom: 13
       });
-      var iwopts = {
-        content: 'Hello',
-        maxWidth: 300 ,
-        positon: latlng
-      };
-      var infowindow = new google.maps.InfoWindow(iwopts);
-      infowindow.open(map);
+
       var request = {
         query: "<%= @spot.name %>",
         location: latlng,
         radius: '100'
       };
+
       const service = new google.maps.places.PlacesService(map);
       service.textSearch(request, callback);
       function callback(results, status) {
@@ -47,6 +45,7 @@ function initMap() {
           }
         }
       }
+
       function createMarker(place) {
         var marker = new google.maps.Marker({
           place: {
@@ -56,6 +55,7 @@ function initMap() {
           map: map,
           title :place.name,
         });
+
         const info =
           '<div id="content">' +
           '<div id="siteNotice">' +

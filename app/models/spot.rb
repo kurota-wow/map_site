@@ -11,10 +11,10 @@ class Spot < ApplicationRecord
   end
 
   scope :get_area, -> (area) {
-    where( 'city = ?', "#{area}" ) 
+    where(city: "#{area}") 
   }
   scope :get_category, -> (category) {
-    where( 'category = ?', "#{category}" ) 
+    where(category: "#{category}") 
   }
   scope :get_keyword, -> (keyword) {
     where( 'name LIKE(?) OR content LIKE(?) OR address LIKE(?)', "%#{keyword}%",  "%#{keyword}%",  "%#{keyword}%" ) 

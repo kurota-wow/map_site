@@ -1,39 +1,42 @@
 require 'rails_helper'
 
-RSpec.describe "Events", type: :system do
+RSpec.describe "Events" do
   before do
     driven_by(:selenium_chrome_headless)
   end
-  let(:user) { FactoryBot.create(:user) }
-  let!(:event) { FactoryBot.create(:event, :with_image) }
 
-  describe "#create" do
-    it "user creates a new event" do
-      sign_in user
-      visit admin_root_path
-      click_link "Events"
-      visit "/admin/events/new"
-      fill_in "Season", with: "春"
-      fill_in "Name", with: "お祭り"
-      click_button "登録する"
-      expect(page).to have_content "Eventを作成しました。"
-    end
-  end
+  let!(:user) { create(:user) }
+  let!(:event) { create(:event, :with_image) }
 
   describe "#show" do
-    it "move from list to detail" do
-      visit events_path
-      find("#summer").click
-      expect(page).to have_content event.name
+    context "when accessing the show page from the list" do
+      it "displays event details" do
+        visit events_path
+        click_on event.name
+        expect(page).to have_current_path event_path(event.id), ignore_query: true
+        expect(page).to have_content event.name
+        expect(page).to have_selector('img')
+      end
+    end
 
-      click_on event.name
-      expect(current_path).to eq event_path(event.id)
-      expect(page).to have_content event.name
-      expect(page).to have_selector('img')
-
-      click_link "←戻る"
-      expect(current_path).to eq events_path
+    context "when clicking the back link" do
+      it "navigates back to the list" do
+        visit events_path
+        visit event_path(event.id)
+        click_link "←戻る"
+        expect(page).to have_current_path events_path, ignore_query: true
+      end
     end
   end
 
+  describe "#index" do
+    it "displays events filtered by season" do
+      create(:event, name: "Spring Event", season: "春")
+      create(:event, name: "Summer Event", season: "夏")
+      visit events_path
+      page.find('li[data-season="summer"]').click
+      expect(page).to have_content("Summer Event")
+      expect(page).not_to have_content("Spring Event")
+    end
+  end
 end

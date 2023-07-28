@@ -1,9 +1,9 @@
 require 'rails_helper'
 
-RSpec.describe "Admin::Spots", type: :request do
+RSpec.describe "Admin::Spots" do
   before do
-    @user = FactoryBot.create(:user)
-    sign_in @user
+    user = create(:user)
+    sign_in user
     get admin_root_path
   end
 
@@ -11,7 +11,7 @@ RSpec.describe "Admin::Spots", type: :request do
     context "with valid attributes" do
       it "adds a spot" do
         get new_admin_spot_path
-        spot_params = FactoryBot.attributes_for(:spot)
+        spot_params = attributes_for(:spot)
         expect {
           post admin_spots_path, params: { spot: spot_params }
         }.to change(Spot, :count).by(1)
@@ -21,29 +21,29 @@ RSpec.describe "Admin::Spots", type: :request do
     context "with invalid attributes" do
       it "does not add a spot" do
         get new_admin_spot_path
-        spot_params = FactoryBot.attributes_for(:spot, :invalid_spot)
+        spot_params = attributes_for(:spot, :invalid_spot)
         expect {
           post admin_spots_path, params: { spot: spot_params }
-        }.to_not change(Spot, :count)
+        }.not_to change(Spot, :count)
       end
     end
   end
 
   describe "GET /admin/spots/:id/edit" do
     it "updates a spot" do
-      @spot = FactoryBot.create(:spot)
-      get edit_admin_spot_path(@spot.id)
-      spot_params = FactoryBot.attributes_for(:spot, name: "new name")
+      spot = create(:spot)
+      get edit_admin_spot_path(spot.id)
+      spot_params = attributes_for(:spot, name: "new name")
       patch admin_spot_path, params: { spot: spot_params }
-      expect(@spot.reload.name).to eq "new name"
+      expect(spot.reload.name).to eq "new name"
     end
   end
 
   describe "DELETE /admin/spots/:id" do
     it "destory a spot" do
-      @spot = FactoryBot.create(:spot)
+      spot = create(:spot)
       expect {
-        delete "/admin/spots/" + @spot.id.to_s
+        delete "/admin/spots/" + spot.id.to_s
       }.to change(Spot, :count).by(-1)
     end
   end

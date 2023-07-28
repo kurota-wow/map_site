@@ -4,7 +4,7 @@ class ContactMailer < ApplicationMailer
 
   def received_email(contact)
     @contact = contact
-    mail(from: contact.email, to: ENV['TOMAIL'], subject: 'Webサイトより問い合わせが届きました') do |format|
+    mail(from: contact.email, to: ENV.fetch('TOMAIL', nil), subject: 'Webサイトより問い合わせが届きました') do |format|
       format.text
     end
   end
@@ -15,5 +15,4 @@ class ContactMailer < ApplicationMailer
       format.text
     end
   end
-  
 end

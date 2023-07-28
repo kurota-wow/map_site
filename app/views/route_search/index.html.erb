@@ -3,108 +3,69 @@
   <div class="selection-screen screen">
     <div class="selection">
       <ul>
-        <li><a href="#link1"><span>1</span>サクッと松山観光ルート</a></li>
-        <li><a href="#link2"><span>2</span>愛媛をぐるっとよくばりルート</a></li>
-        <li><a href="#link3"><span>3</span>家族でレジャー体験ルート</a></li>
-        <li><a href="#link4"><span>4</span>海と自然を満喫ルート</a></li>
+        <% routes = [
+          {
+            title: "サクッと松山観光ルート",
+            image: "onsen.jpg",
+            sections: [
+              { title: "松山銀天街", description: "松山の中心街に行こう" },
+              { title: "道後商店街", description: "電車で道後へ行き、お土産やスイーツを堪能" },
+              { title: "道後温泉", description: "道後温泉に浸かろう" }
+            ]
+          },
+          {
+            title: "愛媛をぐるっとよくばりルート",
+            image: "utiko.jpg",
+            sections: [
+              { title: "道後", description: "道後商店街を巡る" },
+              { title: "内子", description: "内子の歴史ある街並み、古民家のショップを巡る" },
+              { title: "佐田岬", description: "愛媛の最西端に行く" }
+            ]
+          },
+          {
+            title: "家族でレジャー体験ルート",
+            image: "keikoku.jpg",
+            sections: [
+              { title: "滑床渓谷", description: "滑床渓谷に行く" },
+              { title: "渓谷で遊ぶ", description: "予約しておいたキャニオニングをする" },
+              { title: "キャンプ場", description: "近くのキャンプ場に行く" }
+            ]
+          },
+          {
+            title: "海と自然を満喫ルート",
+            image: "ocean.jpg",
+            sections: [
+              { title: "面河渓", description: "面河渓で自然を感じる" },
+              { title: "四国カルスト", description: "ドライブコースを通り広大なカルストを堪能" },
+              { title: "西海観光船", description: "船の中から海を楽しむ" }
+            ]
+          },
+        ] %>
+        <% routes.each_with_index do |route, index| %>
+          <li><a href="#link<%= index + 1 %>"><span><%= index + 1 %></span><%= route[:title] %></a></li>
+        <% end %>
       </ul>
     </div>
   </div>
-  <a id="link1"></a>
-  <div class="route screen">
-    <span>Start サクッと松山観光ルート</span>
-    <div class="border">
-      <div class="route-section">
-        <div class="section">
-          <h4><span>1</span>松山銀天街</h4>
-          <p>松山の中心街に行こう</p>
+  <% routes.each_with_index do |route, index| %>
+    <a id="link<%= index + 1 %>"></a>
+    <div class="route screen">
+      <span>Start <%= route[:title] %></span>
+      <div class="border">
+        <div class="route-section">
+          <% route[:sections].each_with_index do |section, index| %>
+            <div class="section">
+              <h4><span><%= index + 1 %></span><%= section[:title] %></h4>
+              <p><%= section[:description] %></p>
+            </div>
+          <% end %>
         </div>
-        <div class="section">
-          <h4><span>2</span>道後商店街</h4>
-          <p>電車で道後へ行き、<br>お土産やスイーツを<br>堪能</p>
-        </div>
-        <div class="section">
-          <h4><span>3</span>道後温泉</h4>
-          <p>道後温泉に浸かろう</p>
+        <div class="route-map">
+          <%= image_tag(route[:image], alt: route[:title], class: "route-image") %>
         </div>
       </div>
-      <div class="route-map">
-        <%= image_tag("onsen.jpg", alt: "道後温泉", class: "route-image") %>
-      </div>
+      <span>end</span>
     </div>
-    <span>end</span>
-  </div>
-  <a id="link2"></a>
-  <div class="route screen">
-    <span>Start 愛媛をぐるっとよくばりルート</span>
-    <div class="border">
-      <div class="route-section">
-        <div class="section">
-          <h4><span>1</span>道後</h4>
-          <p>道後商店街を巡る</p>
-        </div>
-        <div class="section">
-          <h4><span>2</span>内子</h4>
-          <p>内子の歴史ある街並み<br>古民家のショップを巡る</p>
-        </div>
-        <div class="section">
-          <h4><span>3</span>佐田岬</h4>
-          <p>愛媛の最西端に行く</p>
-        </div>
-      </div>
-      <div class="route-map">
-        <%= image_tag("utiko.jpg", alt: "内子町", class: "route-image") %>
-      </div>
-    </div>
-    <span>end</span>
-  </div>
-  <a id="link3"></a>
-  <div class="route screen">
-    <span>Start 家族でレジャー体験ルート</span>
-    <div class="border">
-      <div class="route-section">
-        <div class="section">
-          <h4><span>1</span>滑床渓谷</h4>
-          <p>滑床渓谷に行く</p>
-        </div>
-        <div class="section">
-          <h4><span>2</span>渓谷で遊ぶ</h4>
-          <p>予約しておいた<br>キャニオニングをする</p>
-        </div>
-        <div class="section">
-          <h4><span>3</span>キャンプ場</h4>
-          <p>近くのキャンプ場に行く</p>
-        </div>
-      </div>
-      <div class="route-map">
-        <%= image_tag("keikoku.jpg", alt: "渓谷", class: "route-image") %>
-      </div>
-    </div>
-    <span>end</span>
-  </div>
-  <a id="link4"></a>
-  <div class="route screen">
-    <span>Start 海と自然を満喫ルート</span>
-    <div class="border">
-      <div class="route-section">
-        <div class="section">
-          <h4><span>1</span>面河渓</h4>
-          <p>面河渓で自然を感じる</p>
-        </div>
-        <div class="section">
-          <h4><span>2</span>四国カルスト</h4>
-          <p>ドライブコースを通り<br>広大なカルストを堪能</p>
-        </div>
-        <div class="section">
-          <h4><span>3</span>西海観光船</h4>
-          <p>船の中から海を楽しむ</p>
-        </div>
-      </div>
-      <div class="route-map">
-        <%= image_tag("ocean.jpg", alt: "船と海", class: "route-image") %>
-      </div>
-    </div>
-    <span>end</span>
-  </div>
+  <% end %>
   <a href="#" class="gotop"></a>
 </div>

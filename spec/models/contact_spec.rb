@@ -1,16 +1,17 @@
 require 'rails_helper'
 
-RSpec.describe Contact, type: :model do
-  let(:contact) { FactoryBot.build(:contact) }
+RSpec.describe Contact do
+  let!(:contact) { build(:contact) }
 
   describe 'attribute: name' do
     it { is_expected.to validate_presence_of :name }
   end
+
   describe 'attribute: email' do
     it { is_expected.to validate_presence_of :email }
 
     context 'when correct format' do
-      it 'is valid' do
+      it 'is valid email' do
         contact.email = 'user@example.com'
         expect(contact).to be_valid
 
@@ -35,6 +36,7 @@ RSpec.describe Contact, type: :model do
       end
     end
   end
+
   describe 'attribute: message' do
     it { is_expected.to validate_presence_of :message }
 
@@ -44,6 +46,7 @@ RSpec.describe Contact, type: :model do
         expect(contact).to be_valid
       end
     end
+
     context 'when length is more than 100 characters' do
       it 'is invalid' do
         contact.message = 'a' * 101

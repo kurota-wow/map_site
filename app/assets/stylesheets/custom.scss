@@ -123,11 +123,10 @@ textarea {
         transform: scale(1.15,1.15);
         transition: all  0.3s ease;
       }
-      &:active {
+      &.active {
         transform: translate(0,2px);
       }
     }
-    
   }
 }
 
@@ -478,6 +477,7 @@ a:nth-of-type(even)>.event {
 a:nth-of-type(3n)>.event {
   border-right: 27px solid #fff990;
 }
+
 .tabbox {
   display: none;
   padding: 80px 15px;
@@ -535,19 +535,19 @@ a:nth-of-type(3n)>.event {
       color: rgba(0, 0, 0, 0.687);
     }
   }
-  #spring.border {
+  [data-season="spring"].border {
     border-bottom: 10px solid rgba(247, 172, 255, 0.768);
     color: black;
   }
-  #summer.border {
+  [data-season="summer"].border {
     border-bottom: 10px solid rgba(255, 246, 153, 0.768);
     color: black;
   }
-  #autumn.border {
+  [data-season="autumn"].border {
     border-bottom: 10px solid rgba(255, 172, 133, 0.768);
     color: black;
   }
-  #winter.border {
+  [data-season="winter"].border {
     border-bottom: 10px solid rgba(137, 198, 255, 0.768);
     color: black;
   }
@@ -1474,3 +1474,4 @@ html{
     border: 2px solid rgba(74, 74, 74, 0.919);
   }
 }
+

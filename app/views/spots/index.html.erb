@@ -1,16 +1,24 @@
 <% provide(:title, "スポット一覧") %>
+
 <div class="spot back">
   <div class="search">
     <h3>条件で探す</h3>
     <div class="search-forms">
-      <%= form_with(url: spots_path, local: true, method: :get, class: "search-form") do |form| %>
-        <%= form.select :area, [['東予', 1], ['中予', 2], ['南予', 3]], { include_blank: 'エリアを選択する', selected: params[:area]}, { class: "search-input" } %>
-        <%= form.select :category, [['観光地', '観光地'], ['レジャー', 'レジャー'], ['歴史', '歴史'], ['お土産', 'お土産'], ['グルメ', 'グルメ']], { include_blank: 'ジャンルを選択する', selected: params[:category]}, { class: "search-input" }%>
+      <%= form_with(url: spots_path, 
+                    method: :get, 
+                    class: "search-form") do |form| %>
+         <%= form.select :area,
+                options_for_select(@areas, selected: params[:area]),
+                { include_blank: 'エリアを選択する'},{class: "search-input" } %>
+        <%= form.select :category,
+                 options_for_select(@categories, selected: params[:category]),
+                 { include_blank: 'ジャンルを選択する'},{class: "search-input" } %>
         <%= form.text_field :keyword, placeholder: "キーワードを入力", class: "search-input", value: params[:keyword] %>
         <%= form.submit "検索", class: "search-btn" %>
       <% end %>
     </div>
   </div>
+
   <div class="spot-content-box">
     <% @spots.with_attached_icon.each do |spot| %>
       <div class="spot-contents">

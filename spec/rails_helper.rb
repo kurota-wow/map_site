@@ -33,7 +33,7 @@ rescue ActiveRecord::PendingMigrationError => e
 end
 RSpec.configure do |config|
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
-  config.fixture_path = "#{::Rails.root}/spec/fixtures"
+  config.fixture_path = Rails.root.join('spec/fixtures').to_s
 
   # If you're not using ActiveRecord, or you'd prefer not to run each of your
   # examples within a transaction, remove the following line or assign false
@@ -42,30 +42,30 @@ RSpec.configure do |config|
 
   # You can uncomment this line to turn off ActiveRecord support entirely.
   # config.use_active_record = false
-  config.before(:each) do
+  config.before do
     stub_request(:any, /maps.googleapis.com/).to_return(status: 200, body: {}.to_json)
     stub_request(:any, /maps.googleapis.com\/maps\/api\/js/).to_return(status: 200, body: 'initMap();')
     response_body = [
       {
-        "place_id": 93812627,
-        "licence": "Data © OpenStreetMap contributors, ODbL 1.0. https://osm.org/copyright",
-        "osm_type": "node",
-        "osm_id": 9132250573,
-        "boundingbox": ["33.901624", "33.921624", "133.179252", "133.199252"],
-        "lat": "33.911624",
-        "lon": "133.189252",
-        "display_name": "大町, Saijo, Ehime Prefecture, 793-0030, Japan",
-        "class": "place",
-        "type": "quarter",
-        "importance": 0.25,
-        "address": {
-          "quarter": "大町",
-          "city": "Saijo",
-          "province": "Ehime Prefecture",
-          "ISO3166-2-lvl4": "JP-38",
-          "postcode": "793-0030",
-          "country": "Japan",
-          "country_code": "jp"
+        place_id: 93812627,
+        licence: "Data © OpenStreetMap contributors, ODbL 1.0. https://osm.org/copyright",
+        osm_type: "node",
+        osm_id: 9132250573,
+        boundingbox: ["33.901624", "33.921624", "133.179252", "133.199252"],
+        lat: "33.911624",
+        lon: "133.189252",
+        display_name: "大町, Saijo, Ehime Prefecture, 793-0030, Japan",
+        class: "place",
+        type: "quarter",
+        importance: 0.25,
+        address: {
+          quarter: "大町",
+          city: "Saijo",
+          province: "Ehime Prefecture",
+          'ISO3166-2-lvl4': "JP-38",
+          postcode: "793-0030",
+          country: "Japan",
+          country_code: "jp"
         }
       }
     ].to_json
@@ -101,8 +101,9 @@ RSpec.configure do |config|
   Webdrivers::Chromedriver.required_version = "114.0.5735.90"
 
   config.before(:all) do
-    FileUtils.rm_rf(Dir[Rails.root.join('tmp', 'screenshots', '*')], secure: true)
+    FileUtils.rm_rf(Dir[Rails.root.join("tmp/screenshots/*")], secure: true)
   end
+  config.include FactoryBot::Syntax::Methods
 end
 Shoulda::Matchers.configure do |config|
   config.integrate do |with|

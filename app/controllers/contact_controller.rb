@@ -16,10 +16,12 @@ class ContactController < ApplicationController
     @contact = Contact.new(contact_params)
     if params[:back]
       render :new
-    else
+    elsif @contact.valid?
       ContactMailer.received_email(@contact).deliver_now
       ContactMailer.send_mail(@contact).deliver_now
       redirect_to thanks_path
+    else
+      redirect_to new_contact_path
     end
   end
 

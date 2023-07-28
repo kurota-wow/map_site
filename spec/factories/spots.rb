@@ -9,9 +9,9 @@ FactoryBot.define do
     category { nil }
   end
   trait :with_icon do
-    icon { fixture_file_upload(Rails.root.join('spec', 'fixtures', 'files', 'test.jpg')) }
+    icon { fixture_file_upload(Rails.root.join("spec/fixtures/files/test.jpg")) }
   end
   trait :with_not_icon do
-    icon { fixture_file_upload(Rails.root.join('spec', 'fixtures', 'files', 'favicon.ico')) }
+    icon { fixture_file_upload(Rails.root.join("spec/fixtures/files/favicon.ico")) }
   end
 end

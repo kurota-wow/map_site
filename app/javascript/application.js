@@ -4,6 +4,7 @@ Turbo.session.drive = false
 import "controllers"
 import jQuery from "jquery";
 window.$ = window.jQuery = jQuery;
+import("./custom/font.js")
 import("./custom/main.js")
 import("./custom/wave.js")
 import "@fortawesome/fontawesome-free"

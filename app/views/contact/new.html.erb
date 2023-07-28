@@ -1,9 +1,11 @@
 <% provide(:title, 'お問い合わせ') %>
+
 <div class="back form">
   <%= form_for @contact, :url => confirm_path do |f| %>
     <div class="site-back">
       <h1>お問い合わせ</h1>
     </div>
+
     <% if @contact.errors.any? %>
       <div class="alert alert-danger" role="alert">
         <strong>入力内容にエラーがあります</strong>
@@ -14,6 +16,7 @@
         </ul>
       </div>
     <% end %>
+
     <div class="table">
       <table>
         <tr class="form-item">
