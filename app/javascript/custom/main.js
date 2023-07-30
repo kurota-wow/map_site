@@ -1,4 +1,5 @@
-$(function(){
+import $ from "jquery";
+{
   $('.responsive-btn').on('click', function () {
     $('.header-nav').toggleClass('menu-active');
   });
@@ -217,4 +218,4 @@ $(function(){
       observer.observe(target);
     });
   });
-});
+}
