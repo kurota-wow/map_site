@@ -10,7 +10,7 @@
 
   <div class="event-image">
     <% if @event.image.attached? %>
-      <%= image_tag @event.image.variant(resize_to_limit: [700, 500]) %>
+      <%= image_tag @event.image %>
     <% end %>
   </div>
 </div>

@@ -50,12 +50,12 @@
   <% routes.each_with_index do |route, index| %>
     <a id="link<%= index + 1 %>"></a>
     <div class="route screen">
-      <span>Start <%= route[:title] %></span>
+      <span class="route-index">Start <%= route[:title] %></span>
       <div class="border">
         <div class="route-section">
           <% route[:sections].each_with_index do |section, index| %>
             <div class="section">
-              <h4><span><%= index + 1 %></span><%= section[:title] %></h4>
+              <h4><span class="route-index"><%= index + 1 %></span><%= section[:title] %></h4>
               <p><%= section[:description] %></p>
             </div>
           <% end %>
@@ -64,7 +64,7 @@
           <%= image_tag(route[:image], alt: route[:title], class: "route-image") %>
         </div>
       </div>
-      <span>end</span>
+      <span class="route-index">end</span>
     </div>
   <% end %>
   <a href="#" class="gotop"></a>

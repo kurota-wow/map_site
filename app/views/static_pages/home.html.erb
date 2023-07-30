@@ -6,7 +6,7 @@
         <%= render 'static_pages/area_map' %>
       </div>
 
-      <div class="switch_btns">
+      <div class="switch-btns">
         <span>ジャンルをえらぶ</span>
         <%= image_tag("map_btn.png", alt: "マップ", id: "btn1", class: "button") %>
         <%= image_tag("asobu_btn.png", alt: "あそぶ", id: "btn2", class: "button sepia") %>
@@ -63,8 +63,7 @@
       </div>
 
       <div class="section-image">
-        <h2 class="target">ピックアップ</h2>
-
+        <h2 class="target pick">ピックアップ</h2>
         <div class="slideshow target">
           <div class="slide-screen">
             <div class="slideshow-slides">
@@ -83,8 +82,8 @@
             </div>
           </div>
           <div class="slideshow-nav">
-            <span class="prev"><%= image_tag("button2.png", alt: "進むボタン", width: "35") %></span>
-            <span class="next"><%= image_tag("button1.png", alt: "戻るボタン", width: "35") %></span>
+            <span class="prev btn"><%= image_tag("button2.png", alt: "進むボタン", width: "35") %></span>
+            <span class="next btn"><%= image_tag("button1.png", alt: "戻るボタン", width: "35") %></span>
           </div>
           <div class="slideshow-indicator"></div>
           <div class="section-title">

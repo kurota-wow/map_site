@@ -14,14 +14,14 @@ RSpec.describe "Header" do
 
   it "toggles the header navigation with responsive button" do
     visit root_path
-    expect(page).to have_selector(".responsive_btn")
-    find(".responsive_btn").click
-    expect(page).to have_selector(".header_nav")
+    expect(page).to have_selector(".responsive-btn")
+    find(".responsive-btn").click
+    expect(page).to have_selector(".header-nav")
   end
 
   it "has correct links in the navigation menu" do
     visit root_path
-    find(".responsive_btn").click
+    find(".responsive-btn").click
     expect(page).to have_link("ぐるぐるマップ", href: root_path)
     expect(page).to have_link("スポット", href: spots_path)
     expect(page).to have_link("イベント", href: events_path)

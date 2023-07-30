@@ -91,4 +91,13 @@ Rails.application.configure do
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
 
+  config.action_dispatch.rack_cache = {
+    metastore: "rails:/",
+    entitystore: "rails:/",
+    verbose: false,
+    ignore_headers: ["Set-Cookie"],
+    allow_reload: false,
+    allow_revalidate: false,
+    cacheable_request_headers: ['Accept', 'Accept-Language']
+  }
 end

@@ -1,7 +1,7 @@
 <% provide(:title, "スポット詳細") %>
 
 <div class="spot back">
-  <ul class="spot-details">
+  <ul class="spot-details spot-box">
     <li class="spot-name"><%= @spot.name %></li>
     <li class="spot-address"><%= @spot.address %></li>
     <li class="spot-content"><%= @spot.content %></li>
@@ -11,7 +11,7 @@
     <li><%= link_to "←戻る", '#', onclick: "history.back()", class: "back-to" %></li>
   </ul>
 
-  <div id="map" style='width: 60%; height: 400px;'></div>
+  <div id="map"></div>
 </div>
 
 <script type="text/javascript">
@@ -58,8 +58,8 @@ function initMap() {
 
         const info =
           '<div id="content">' +
-          '<div id="siteNotice">' +
-          '<h3 id="firstHeading" class="firstHeading"><%= @spot.name %></h3>' +
+          '<div id="site-notice">' +
+          '<h3 class="first-heading"><%= @spot.name %></h3>' +
           '<p><%= @spot.address %></p>' +
           "</div>" +
           "</div>";

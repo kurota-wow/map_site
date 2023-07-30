@@ -1,9 +1,9 @@
 $(function(){
-  $('.responsive_btn').on('click', function () {
-    $('.header_nav').toggleClass('menu_active');
+  $('.responsive-btn').on('click', function () {
+    $('.header-nav').toggleClass('menu-active');
   });
 
-  $('.switch_btns').on('click', '.button', function() {
+  $('.switch-btns').on('click', '.button', function() {
     const btnId = $(this).attr('id');
     const imageId = `#image${btnId.slice(-1)}`;
     $(imageId).toggleClass('appear');
@@ -218,4 +218,3 @@ $(function(){
     });
   });
 });
-

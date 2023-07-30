@@ -1,0 +1,288 @@
+$font-family: arial, sans-serif;
+
+*{
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  text-decoration: none;
+  list-style: none;
+}
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+main,
+menu,
+nav,
+section,
+summary {
+  display: block;
+}
+
+a {
+  color: #337ab7;
+  text-decoration: none;
+  background-color: transparent;
+}
+
+svg:not(:root) {
+  overflow: hidden;
+}
+
+button,
+input,
+optgroup,
+select,
+textarea {
+  margin: 0;
+  font: inherit;
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+  color: inherit;
+}
+
+
+button,
+html input[type="button"],
+input[type="reset"],
+input[type="submit"] {
+  appearance: button;
+  cursor: pointer;
+}
+
+img {
+  vertical-align: middle;
+  border: 0;
+}
+
+small {
+  font-size: 80%;
+}
+
+audio,
+canvas,
+progress,
+video {
+  display: inline-block;
+  vertical-align: baseline;
+}
+
+html {
+  font-family: $font-family;
+  text-size-adjust: 100%;
+  font-size: 10px;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  scroll-behavior: smooth;
+}
+
+body {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  padding-bottom: 120px;
+  margin: 0;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  line-height: 1.4286;
+  color: #333;
+  background: url("background1.jpg") no-repeat top / cover;
+  background-color: #fff;
+}
+
+@media screen and (min-height: 1000px) {
+  body {
+    background: url("background1.jpg") no-repeat top / 100% 100%;
+  }
+}
+
+.container {
+  width: 100%;
+  padding: 0;
+  margin: 0;
+}
+.back {
+  min-height: 600px;
+  padding: 30px;
+  margin-bottom: 70px;
+  background-color: #fff;
+  border-radius: 4px;
+  box-shadow: 0 -5px 10px #ffffffa0;
+}
+
+section {
+  overflow: auto;
+}
+
+textarea {
+  resize: vertical;
+}
+
+#icon {
+  width: 50px;
+  margin-right: 10px;
+}
+
+/* typography */
+
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6 {
+  font-family: inherit;
+  font-weight: 500;
+  line-height: 1.1;
+  color: inherit;
+}
+
+h1, .h1,
+h2, .h2,
+h3, .h3 {
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+h1 {
+  margin-bottom: 30px;
+  font-size: 3em;
+  text-align: center;
+  letter-spacing: -2px;
+}
+
+h2 {
+  padding: 30px;
+  margin: 0;
+  font-size: 4em;
+  font-weight: bold;
+  text-align: center;
+  letter-spacing: 5px;
+}
+
+/* login form */
+.box {
+  width: 350px;
+  height: 350px;
+  margin: 60px auto 0;
+  background-color: #fff;
+  border: 1px #ddd solid;
+  border-radius: 4px;
+}
+
+.box-inner {
+  padding: 20px 26px;
+
+  h1 {
+    padding-bottom: 4px;
+    margin-bottom: 10px;
+    font-size: 28px;
+    font-weight: 400;
+    line-height: 1.2;
+    color: #111;
+  }
+
+  .box-email {
+    margin-bottom: 13px;
+  }
+
+  .box-password {
+    margin-bottom: 22px;
+  }
+}
+
+.box-email label, .box-password label {
+  padding-bottom: 2px;
+  padding-left: 2px;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.box-email input[type="email"], .box-password input[type="password"] {
+  box-sizing: border-box;
+  width: 100%;
+  height: 31px;
+  padding: 0 7px;
+  border: 1px solid #a6a6a6;
+  border-style: none;
+  border-radius: 3px;
+  box-shadow: 0 1px 0 rgba(0,0,0,.07) inset;
+}
+
+.column-left {
+  float: left;
+}
+
+.box-password a {
+  font-size: 13px;
+}
+
+.box-login {
+  margin-bottom: 26px;
+}
+
+.box-login input[type="submit"] {
+  width: 100%;
+  height: 31px;
+  background: linear-gradient(to bottom,#f7dfa5,#f0c14b);
+  border: 1px #a88734 solid;
+  border-style: none;
+  border-radius: 3px;
+}
+
+.box-login input[type="submit"]:hover {
+  cursor: pointer;
+  background: #f0c14b;
+}
+
+.remember {
+  padding-left: 3px;
+  margin-top: 18px;
+  font-size: 13px;
+}
+
+.gotop{
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  z-index: 10;
+  box-sizing: border-box;
+  display: block;
+  width: 60px;
+  height: 60px;
+  padding-top: 30px;
+  text-align: center;
+  text-decoration: none;
+  background: #fff;
+  border: 1px solid #6d7185;
+  border-radius: 50%;
+  opacity: 0.5;
+}
+.gotop::before{
+  position: absolute;
+  top: 40%;
+  right: 0;
+  left: 0;
+  display: block;
+  width: 25%;
+  height: 25%;
+  margin: auto;
+  content: "";
+  border-top: 2px solid #333;
+  border-right: 2px solid #333;
+  transform: rotate(-45deg);
+}
+.gotop:hover{
+  opacity: 1;
+}
+
+@media(max-width:750px){
+  .gotop{
+      right: 10px;
+      bottom: 10px;
+      width: 40px;
+      height: 40px;
+      opacity: 1;
+  }
+}

@@ -19,6 +19,7 @@ module TravelSite
         helper_specs: false, 
         routing_specs: false
     end
+
     # These settings can be overridden in specific environments using the files
     # in config/environments, which are processed later.
     #

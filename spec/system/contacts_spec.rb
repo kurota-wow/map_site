@@ -46,7 +46,7 @@ RSpec.describe "Contacts" do
         fill_in 'contact[message]', with: valid_params[:message]
         click_button '入力内容確認'
         expect(page).to have_selector('strong', text: "入力内容にエラーがあります")
-        expect(page).to have_selector('.alert.alert-danger')
+        expect(page).to have_selector('.alert')
         expect(page).to have_text("名前を入力してください")
       end
     end

@@ -6,7 +6,7 @@
     <div class="search-forms">
       <%= form_with(url: spots_path, 
                     method: :get, 
-                    class: "search-form") do |form| %>
+                    class: "search-form form-style") do |form| %>
          <%= form.select :area,
                 options_for_select(@areas, selected: params[:area]),
                 { include_blank: 'エリアを選択する'},{class: "search-input" } %>
