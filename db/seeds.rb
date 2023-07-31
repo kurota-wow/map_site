@@ -45,5 +45,5 @@ Event.create!([
   {content: "伊豫豆比古命神社で毎年旧暦正月8日を例祭日として前後3日間開催されるのが、愛媛県で冬を代表する催しとして有名。毎年屋台がずらりと並ぶ。", name: "椿まつり", address: "椿神社", season: "冬", image: nil, date: "1月下旬"}
 ])
 User.create!([
-  {email: "dummy1@example.com", encrypted_password: "$2a$12$dbquWx9dBGNvN0tN..wnse2AeB57nUEp7RJfXIW.ZnxevUjtwvVJO", reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil}
+  {email: "dummy1@example.com", password: 'kakakakaka'}
 ])
