@@ -9,11 +9,10 @@
     transition-duration: 0.2s;
     transform: translate(0,10px);
   }
-  #map {
+  #main-map {
     position: relative;
-    width: 90%;
-    padding-right: 20%;
-    padding-left: 5%;
+    padding-right: 25%;
+    padding-left: 8%;
   }
   .image {
     position: absolute;
@@ -51,7 +50,6 @@
       opacity: .6;
     }
     .button {
-      width: 100%;
       margin-bottom: 20%;
       cursor: pointer;
       user-select: none;
@@ -117,8 +115,8 @@
         padding: 5px;
         margin: 60px auto;
         border-radius: 16px;
-        .icon {
-          margin: 0 10px;
+        .icon-container {
+          width: 200px;
         }
         .container-text {
           width: 60%;
@@ -176,7 +174,6 @@
 	margin:auto;
   overflow: hidden;
 	background-color: rgba(255, 255, 255, 0.526);
-  border: 5px solid rgb(95, 95, 95);
   .slide-screen{
     position:relative;
     left:50%;
@@ -250,16 +247,23 @@
     height: 600px;
   }
   .slideshow{
-    height:300px;
+    height:260px;
     .slide-screen{
-      height:300px;
+      height:260px;
       .slideshow-slides{
-        height:300px;
-        .slide{
-          img{
-            height: 400px;
-          }
-        }
+        height:260px;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .slideshow{
+    height:200px;
+    .slide-screen{
+      height:200px;
+      .slideshow-slides{
+        height:200px;
       }
     }
   }

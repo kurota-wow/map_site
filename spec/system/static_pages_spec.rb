@@ -16,7 +16,7 @@ RSpec.describe "StaticPages" do
     end
 
     it "toggle map with button" do
-      expect(page).to have_selector('#map')
+      expect(page).to have_selector('#main-map')
       expect(page).to have_selector('#image1')
       expect(page).to have_selector('#btn2')
       find_by_id('btn1').click
@@ -54,7 +54,7 @@ RSpec.describe "StaticPages" do
 
     it "click and go to top" do
       visit root_path
-      execute_script('window.scrollBy(0,5000)')
+      execute_script('window.scrollBy(0,2000)')
       page.find('.gotop').click
       sleep 5
       expect(page.evaluate_script("$(window).scrollTop()")).to eq(0)

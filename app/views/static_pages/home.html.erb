@@ -2,17 +2,17 @@
   <div class="background">
     <div class="main">
       <div class="maps">
-        <%= image_tag("map.png", alt: "愛媛県の地図", id: "map") %>
+        <%= image_tag("map-large.webp", alt: "愛媛県の地図", id: "main-map",srcset: "#{image_path('map-small.webp')} 480w, #{image_path('map-large.webp')} 1080w", sizes: "100vw", style: "width: 100%; height: auto;" ) %>
         <%= render 'static_pages/area_map' %>
       </div>
 
       <div class="switch-btns">
         <span>ジャンルをえらぶ</span>
-        <%= image_tag("map_btn.png", alt: "マップ", id: "btn1", class: "button") %>
-        <%= image_tag("asobu_btn.png", alt: "あそぶ", id: "btn2", class: "button sepia") %>
-        <%= image_tag("taberu_btn.png", alt: "たべる", id: "btn3", class: "button sepia") %>
-        <%= image_tag("rekisi_btn.png", alt: "れきし", id: "btn4", class: "button sepia") %>
-        <%= image_tag("omiyage_btn.png", alt: "おみやげ", id: "btn5", class: "button sepia") %>
+        <%= image_tag("map-btn-large.webp", alt: "マップボタン", id: "btn1", class: "button", srcset: "#{image_path('map-btn-small.webp')} 480w, #{image_path('map-btn-large.webp')} 1080w", sizes: "100vw", style: "width: 100%; height: auto;" ) %>
+        <%= image_tag("asobu-btn-large.webp", alt: "あそぶボタン", id: "btn2", class: "button sepia", srcset: "#{image_path('asobu-btn-small.webp')} 480w, #{image_path('asobu-btn-large.webp')} 1080w", sizes: "100vw", style: "width: 100%; height: auto;" ) %>
+        <%= image_tag("taberu-btn-large.webp", alt: "たべるボタン", id: "btn3", class: "button sepia", srcset: "#{image_path('taberu-btn-small.webp')} 480w, #{image_path('taberu-btn-large.webp')} 1080w", sizes: "100vw", style: "width: 100%; height: auto;" ) %>
+        <%= image_tag("rekisi-btn-large.webp", alt: "れきしボタン", id: "btn4", class: "button sepia", srcset: "#{image_path('rekisi-btn-small.webp')} 480w, #{image_path('rekisi-btn-large.webp')} 1080w", sizes: "100vw", style: "width: 100%; height: auto;" ) %>
+        <%= image_tag("omiyage-btn-large.webp", alt: "おみやげボタン", id: "btn5", class: "button sepia", srcset: "#{image_path('omiyage-btn-small.webp')} 480w, #{image_path('omiyage-btn-large.webp')} 1080w", sizes: "100vw", style: "width: 100%; height: auto;" ) %>
       </div>
     </div>
 
@@ -29,7 +29,7 @@
             <span>ぐるぐるマップ愛媛は、あなたが愛媛を知るサポートをします。</span>
           </p>
           <div class="main-image">
-            <%= image_tag("top1.png", alt: "みかん人間", id: "human") %>
+            <%= image_tag("top1.webp", alt: "みかん人間", id: "human", style: "width: 100%; height: 95%" ) %>
           </div>
         </div>
       </div>
@@ -39,21 +39,27 @@
 
         <div class="images-container target">
           <div class="image-container">
-            <%= image_tag("icon1.png", alt: "みかんのアイコン", id: "orange", class: "icon") %>
+            <div class="icon-container">
+              <%= image_tag("icon1.webp", alt: "みかんのアイコン", id: "orange", class: "icon", style: "width: 100%; height: auto;" ) %>
+            </div>
             <div class="container-text">
               <h3>愛媛はみかんで有名？</h3>
               <p>温暖な気候と肥沃な土地でみかん栽培が盛ん。収穫量も全国トップクラスであり、みかんの県として知名度が高い。</p>
             </div>
           </div>
           <div class="image-container target">
-            <%= image_tag("icon2.png", alt: "森のアイコン", id: "nature", class: "icon") %>
+            <div class="icon-container">
+              <%= image_tag("icon2.webp", alt: "森のアイコン", id: "nature", class: "icon", style: "width: 100%; height: auto;" ) %>
+            </div>
             <div class="container-text">
               <h3>自然がいっぱい？</h3>
               <p>愛媛は山、海、平野…など、自然があふれる県。瀬戸内海は天然の生簀と言われるほど豊富な魚介が魅力。自然の幸が揃う、それが愛媛。</p>
             </div>
           </div>
           <div class="image-container target">
-            <%= image_tag("icon3.png", alt: "街のアイコン", id: "city", class: "icon") %>
+            <div class="icon-container">
+              <%= image_tag("icon3.webp", alt: "街のアイコン", id: "city", class: "icon", style: "width: 100%; height: auto;" ) %>
+            </div>
             <div class="container-text">
               <h3>住みやすい街ってほんと？</h3>
               <p>住みやすい田舎ランキングなどで上位に入る街もある愛媛。豊富な自然や温泉、空港や家賃の安さなど…充実した住みやすい田舎だと言える。</p>
@@ -68,22 +74,22 @@
           <div class="slide-screen">
             <div class="slideshow-slides">
               <div class="slide">
-                <%= link_to image_tag("aosima.jpg", alt: "青島"), spot_path(5) %>
+                <%= link_to image_tag("aosima.webp", alt: "青島", style: "width: 100%; height: 100%;"), spot_path(5) %>
               </div>
               <div class="slide">
-                <%= link_to image_tag("isiduti.jpg", alt: "石鎚"), spot_path(4) %>
+                <%= link_to image_tag("isiduti.webp", alt: "石鎚", style: "width: 100%; height: 100%;"), spot_path(4) %>
               </div>
               <div class="slide">
-                <%= link_to image_tag("iyosi.jpg", alt: "下灘駅"), spot_path(6) %>
+                <%= link_to image_tag("iyosi.webp", alt: "下灘駅", style: "width: 100%; height: 100%;"), spot_path(6) %>
               </div>
               <div class="slide">
-                <%= link_to image_tag("onsen.jpg", alt: "道後温泉"), spot_path(1) %>
+                <%= link_to image_tag("onsen.webp", alt: "道後温泉", style: "width: 100%; height: 100%;"), spot_path(1) %>
               </div>
             </div>
           </div>
           <div class="slideshow-nav">
-            <span class="prev btn"><%= image_tag("button2.png", alt: "進むボタン", width: "35") %></span>
-            <span class="next btn"><%= image_tag("button1.png", alt: "戻るボタン", width: "35") %></span>
+            <span class="prev btn"><%= image_tag("prev.webp", alt: "戻るボタン", style: "width: 35px; height: 34px;" ) %></span>
+            <span class="next btn"><%= image_tag("next.webp", alt: "進むボタン", style: "width: 35px; height: 34px;" ) %></span>
           </div>
           <div class="slideshow-indicator"></div>
           <div class="section-title">
