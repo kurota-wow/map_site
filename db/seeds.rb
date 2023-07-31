@@ -143,7 +143,7 @@ ActiveStorage::Blob.create!([
   {key: "pl09wg6ai6ou05agmll1gkbv8k5i", filename: "25930514_m.jpg", content_type: "image/jpeg", metadata: {"identified"=>true, "width"=>700, "height"=>467, "analyzed"=>true}, service_name: "amazon", byte_size: 123493, checksum: "EXgOqXKxkkKz1Gk7nP8qaw=="},
   {key: "3iuny376wapmq66fxb9n915qinm7", filename: "25930514_m.jpg", content_type: "image/jpeg", metadata: {"identified"=>true, "width"=>700, "height"=>467, "analyzed"=>true}, service_name: "amazon", byte_size: 122284, checksum: "vk/zc62fg6clSD5iwcbfBA=="}
 ])
-ActiveStorage::VariantRecord.create!([
+ActiveStorage::VariantRecord = ([
   {blob_id: 1, variation_digest: "B62VV7bY7IWpNU2HcpGzeHQxcSo="},
   {blob_id: 1, variation_digest: "o6FvqsFkA8vhEYgai/NTHqoEOlQ="},
   {blob_id: 1, variation_digest: "W3rQbiDVl3RX0dJoKIDlgkZ9b4A="},
