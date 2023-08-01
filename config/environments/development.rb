@@ -81,4 +81,6 @@ Rails.application.configure do
   config.action_view.preload_links_header = false
   config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
 
+  config.logger = Logger.new('log/sample.log', 10, 5 * 1024 * 1024)
+
 end

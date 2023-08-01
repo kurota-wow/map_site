@@ -1,12 +1,9 @@
-$font-family: arial, sans-serif;
-
 .site-back {
-  font-family: "M PLUS Rounded 1c",$font-family;
   text-align: center;
   h1 {
     display: inline-block;
     padding-bottom: 10px;
-    font-weight: 700;
+    font-family: "M PLUS Rounded 1c bold", sans-serif;
     color: #70634d;
     border-bottom: 8px solid orange;
   }
@@ -22,13 +19,16 @@ $font-family: arial, sans-serif;
       text-align: center;
       list-style: none;
       p {
-        margin-left: 30px;
+        padding-bottom: 5px;
         font-size: 25px;
         font-size: clamp(20px, 2vw, 25px);
       }
       li {
         margin: 30px;
         font-size: clamp(17px, 2vw, 18px);
+        &:hover {
+          text-decoration:underline dashed rgb(39, 128, 158);
+        }
       }
     }
   }

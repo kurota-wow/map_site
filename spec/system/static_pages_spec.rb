@@ -65,8 +65,8 @@ RSpec.describe "StaticPages" do
     it "displays site map links in header correctly" do
       visit about_path
       expect(page).to have_link "ぐるぐるマップから探す", href: root_path
-      expect(page).to have_link "一覧から探す", href: spots_path
-      expect(page).to have_link "イベントから探す", href: events_path
+      expect(page).to have_link "スポットリストから探す", href: spots_path
+      expect(page).to have_link "イベントリストから探す", href: events_path
       expect(page).to have_link "おすすめルートから探す", href: routes_path
     end
 
