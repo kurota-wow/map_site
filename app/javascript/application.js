@@ -5,6 +5,5 @@ import "controllers";
 import jQuery from "jquery";
 window.$ = window.jQuery = jQuery;
 import "@fortawesome/fontawesome-free"
-import "custom/font"
 import "custom/main"
 import "custom/wave"
