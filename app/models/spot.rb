@@ -24,8 +24,8 @@ class Spot < ApplicationRecord
 
   def verify_file_type
     return unless icon.attached?
-    allowed_file_types = %w[image/jpg image/jpeg image/png]
-    errors.add(:icon, 'only jpg, jpeg, png') unless allowed_file_types.include?(icon.blob.content_type)
+    allowed_file_types = %w[image/jpg image/jpeg image/png image/webp]
+    errors.add(:icon, 'only jpg, jpeg, png, webp') unless allowed_file_types.include?(icon.blob.content_type)
   end
 
 end

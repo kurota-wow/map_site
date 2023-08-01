@@ -1,4 +1,5 @@
 import $ from "jquery";
+
 {
   $('.responsive-btn').on('click', function () {
     $('.header-nav').toggleClass('menu-active');
@@ -49,7 +50,6 @@ import $ from "jquery";
         posX,
         imgPosX,
         drug_dis;
-
     function cloneSlide(){
       var $lastSlide = $slider.find('div:last-child'),
           $firstSlide = $slider.find('div:first-child');
@@ -59,7 +59,6 @@ import $ from "jquery";
 				left: (currentIndex + 1) * -(slidewidth) + "px"
 			},0);
     }
-
     function addIndicator(){
 		var indicatorHTML = '<span class="item"></span>';
 		for (let i = 0; i < slideLength; i++){
@@ -68,7 +67,6 @@ import $ from "jquery";
 		$item = $(".item");
 		$item.eq(currentIndex).addClass("active");
     }
-
     function addText(){
       $text.eq(currentIndex).addClass("active");
     }
@@ -76,37 +74,31 @@ import $ from "jquery";
       $text.removeClass("active");
       $text.eq(currentIndex).addClass("active");
     }
-
     function updateNav() {
       $item.removeClass("active");
       $item.eq(currentIndex).addClass("active");
     }
-
     function goSomeWhere() {
       if(!$slider.is(":animated")){
         currentIndex = $(this).index();
         changeSlide();
       }
     }
-
     function nextSlide() {
       if(!$slider.is(":animated")){
         currentIndex++;
         changeSlide();
       }
     }
-
     function prevSlide() {
       if(!$slider.is(":animated")){
         currentIndex--;
         changeSlide();
       }
     }
-
     function resizeSlide() {
       slidewidth = $slides.width();
     }
-
     function changeSlide() {
 		var duration = 200;
     resizeSlide();
@@ -128,22 +120,18 @@ import $ from "jquery";
 		updateNav();
     updateText();
     }
-
     function startTimer() {
 		var interval = 5000;
 		timer = setInterval(nextSlide, interval);
     }
-
     function stopTimer() {
       timer = clearInterval(timer);
     }
-
     function clickSlider(evt1){
       drag_flg = true;
       posX = evt1.screenX;
       imgPosX = $slider.position();
     }
-
     function leaveSlider(){
       if(drag_flg == true){
         if(drug_dis < -(slidewidth / 2)){
@@ -156,7 +144,6 @@ import $ from "jquery";
         drag_flg = false;
       }
     }
-
 	  function moveSlider(evt2){
       if(drag_flg == true){
         evt2.preventDefault();
@@ -164,7 +151,6 @@ import $ from "jquery";
         drug_dis = evt2.screenX - posX
       }
     } 
-
     function setEvent() {
 		$(window).on('mousemove',moveSlider);
 		$(window).on('mouseup',leaveSlider);
@@ -184,24 +170,6 @@ import $ from "jquery";
     startTimer();
   }
   slider();
-
-  $(function() {
-    const targets = $('.target');
-  
-    const observer = new IntersectionObserver((entries, obs) => {
-      entries.forEach(entry => {
-        if (!entry.isIntersecting) {
-          return;
-        }
-        $(entry.target).addClass('appear');
-        obs.unobserve(entry.target);
-      });
-    }, { threshold: 0.2 });
-  
-    targets.each((index, target) => {
-      observer.observe(target);
-    });
-  });
 
   $(function() {
     const targets = $('.target');

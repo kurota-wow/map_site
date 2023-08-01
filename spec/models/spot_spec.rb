@@ -17,7 +17,7 @@ RSpec.describe Spot do
       it "is invalid icon" do
         spot_attached_not_icon = build(:spot, :with_not_icon)
         spot_attached_not_icon.valid?
-        expect(spot_attached_not_icon.errors[:icon]).to include 'only jpg, jpeg, png'
+        expect(spot_attached_not_icon.errors[:icon]).to include 'only jpg, jpeg, png, webp'
       end
     end
 
