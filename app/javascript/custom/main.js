@@ -11,7 +11,7 @@ import $ from "jquery";
     $(this).toggleClass('sepia');
   });
   
-  $(document).ready(function () {
+  $(function () {
     $(".tabbox").removeClass("box-show");
     $('#spring-box').addClass("box-show");
     $(".tab").on("click", function () {
