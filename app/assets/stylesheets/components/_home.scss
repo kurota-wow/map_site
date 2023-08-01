@@ -40,6 +40,7 @@
     display: inline-flex;
     flex-direction: column;
     width: 14%;
+    height: auto;
     span {
       padding-bottom: 15px;
       font-weight: bold;
@@ -67,6 +68,8 @@
 .main-contents {
   padding-top: 30px;
   margin: 0;
+  width: 100vw;
+  height: fit-content;
   #cloud {
     display: block;
     width: 100%;
