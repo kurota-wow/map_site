@@ -2,12 +2,14 @@ $font-family: arial, sans-serif;
 
 @font-face{
   font-family: "M PLUS Rounded 1c";
-  src: font-url('MPLUSRounded1c-Bold.ttf') format('truetype');
+  src: font-url('MPLUSRounded1c-Bold.woff2') format('woff2');
+  font-display: swap;
 }
 
 @font-face{
   font-family: "M PLUS Rounded 1c bold";
   src: font-url('MPLUSRounded1c-ExtraBold.ttf') format('truetype');
+  font-display: swap;
 }
 
 *{
