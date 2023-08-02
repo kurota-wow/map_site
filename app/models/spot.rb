@@ -7,7 +7,7 @@ class Spot < ApplicationRecord
   validates :city, presence: true
   validates :category, presence: true
   has_one_attached :icon do |attachable|
-    attachable.variant :thumb, resize_to_limit: [500, 500]
+    attachable.variant :thumb, resize_to_limit: [300, 300]
   end
 
   scope :get_area, -> (area) {
