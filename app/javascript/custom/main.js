@@ -186,4 +186,14 @@ import $ from "jquery";
       observer.observe(target);
     });
   });
+
+  $(function() {
+    $('.preload-image').each(function() {
+      var imageUrl = $(this).data('src');
+      if (imageUrl) {
+        var image = new Image();
+        image.src = imageUrl;
+      }
+    });
+  });
 }

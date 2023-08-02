@@ -23,7 +23,7 @@
       <div class="spot-contents">
         <%= link_to spot_path(spot.id) do %>
           <% if spot.icon.attached? %>
-            <p class="img"><%= image_tag(spot.icon, alt: spot.name, style: "width: 300px; height: 300px;") %></p>
+            <p class="img"><%= image_tag(spot.icon, alt: spot.name, style: "width: 300px; height: 300px;", class: "preload-image", data: { src: rails_blob_path(spot.icon, only_path: true) }) %></p>
           <% else %>
             <p class="img"><%= image_tag("no-image.jpg", alt: "No image", style: "width: 300px; height: 300px;" ) %></p>
           <% end %>
