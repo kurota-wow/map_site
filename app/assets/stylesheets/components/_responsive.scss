@@ -1,4 +1,8 @@
 @media screen and (max-width: 900px) {
+  body {
+    height: auto;
+    background: url("background1.webp") no-repeat top / contain;
+  }
   .main {
     width: 88%;
     margin-bottom: 10%;
@@ -97,6 +101,7 @@
     height:600px;
   }
   .back {
+    padding: 30px 5px;
     .selection-screen {
       .selection {
         width: 100%;
@@ -254,9 +259,6 @@
             width: 100%;
             margin: 10px 0;
           }
-          .search-btn {
-            background-color: #eaeaea;
-          }
         }
       }
     }
@@ -316,12 +318,22 @@
       }
     }
   }
-
+  .tabbox{
+    div.season-image {
+      width: 100%;
+    }
+  }
   .season-title {
     #season > .tab {
       width: 15%;
       padding: 5px;
       font-size: 35px;
+    }
+  }
+  .event-details {
+    .event-image {
+      height: 300px;
+      margin-bottom: 100px;
     }
   }
 }

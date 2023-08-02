@@ -10,7 +10,11 @@
 
   <div class="event-image">
     <% if @event.image.attached? %>
-      <%= image_tag @event.image %>
+      <% if request.user_agent =~ /iPhone|Android/ %>
+        <%= image_tag @event.image.variant(:mobile) %>
+      <% else %>
+        <%= image_tag @event.image %>
+      <% end %>
     <% end %>
   </div>
 </div>

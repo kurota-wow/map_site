@@ -3,7 +3,7 @@ class Event < ApplicationRecord
   validates :name, presence: true
   validates :season, presence: true
   has_one_attached :image do |attachable|
-    attachable.variant :thumb, resize_to_limit: [700, 500]
+    attachable.variant :mobile, resize_to_limit: [400, 300]
   end
 
   private
