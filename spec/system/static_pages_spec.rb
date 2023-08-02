@@ -54,7 +54,7 @@ RSpec.describe "StaticPages" do
 
     it "click and go to top" do
       visit root_path
-      execute_script('window.scrollBy(0,500)')
+      execute_script('window.scrollBy(0,300)')
       page.find('.gotop').click
       sleep 5
       expect(page.evaluate_script("$(window).scrollTop()")).to eq(0)

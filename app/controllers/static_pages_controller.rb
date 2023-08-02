@@ -4,7 +4,7 @@ class StaticPagesController < ApplicationController
     respond_to do |format|
       format.html
       format.jpeg do
-        response.headers["Cache-Control"] = "public, max-age=30000"
+        response.headers["Cache-Control"] = "public, max-age=40000"
         send_data image_data, type: "image/jpeg", disposition: "inline"
       end
     end

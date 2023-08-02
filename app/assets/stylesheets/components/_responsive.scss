@@ -30,7 +30,11 @@
           transform: scale(1.05,1.05);
         }
       }
-      
+    }
+  }
+  .main-contents {
+    #cloud {
+      display: none;
     }
   }
   .event-details {
@@ -142,9 +146,6 @@
   }
 
   .main-contents {
-    #cloud {
-      display: none;
-    }
     .main-section {
       height: 700px;
       padding: 0 10px;

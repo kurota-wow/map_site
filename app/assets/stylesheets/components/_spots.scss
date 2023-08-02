@@ -35,10 +35,10 @@
           width: 100px;
           height: 40px;
           padding: 0 10px;
+          color: #fff;
           border: none;
           border-radius: 16px;
           box-shadow: 1px 1px 5px #a9a9a9a0;
-          color: #fff;
           &:hover {
             background-color: #d9d9d9;
             transition : 0.3s;
@@ -66,9 +66,9 @@
       border-radius: 32px;
       box-shadow: 3px 3px 5px #555555a0;
       .img {
-        transition:1s all;
         width: 300px;
         height: 300px;
+        transition:1s all;
         &:hover {
           transition:1s all;
           transform:scale(1.2,1.2);
