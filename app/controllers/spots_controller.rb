@@ -1,7 +1,7 @@
 class SpotsController < ApplicationController
   def index
     @spots = Rails.cache.fetch('spots', expires_in: 1.hour) do
-      Spot.preload(icon_attachment: :blob).all
+      Spot.with_attached_icon
     end
     @spots = @spots.get_area(params[:area]) if params[:area].present?
     @spots = @spots.get_category(params[:category]) if params[:category].present?

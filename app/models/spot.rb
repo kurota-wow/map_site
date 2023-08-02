@@ -20,7 +20,6 @@ class Spot < ApplicationRecord
     where( 'name LIKE(?) OR content LIKE(?) OR address LIKE(?)', "%#{keyword}%",  "%#{keyword}%",  "%#{keyword}%" ) 
   }
 
-
   private
 
   def verify_file_type
