@@ -8,7 +8,7 @@ Rails.application.configure do
   config.cache_store = :memory_store, { size: 64.megabytes }
 
   config.public_file_server.headers = {
-    'Cache-Control' => 'public, max-age=3600'
+    'Cache-Control' => 'public, max-age=30000'
   }
   config.action_controller.perform_caching = true
 
