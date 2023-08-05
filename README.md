@@ -7,7 +7,7 @@
 こちらのページから確認することができます。
 
 # デザイン・レイアウト
-
+<img width="1412" alt="名称未設定" src="https://github.com/kurota-wow/map_site/assets/77315612/0a9d2f9f-1351-48a5-b144-0b81a3c39f74">
 
 # 使用した言語・フレームワーク
 - Ruby
