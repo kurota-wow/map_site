@@ -7,8 +7,14 @@
 こちらのページから確認することができます。
 
 # デザイン・レイアウト
+* トップページ
 <img width="1412" alt="名称未設定" src="https://github.com/kurota-wow/map_site/assets/77315612/0a9d2f9f-1351-48a5-b144-0b81a3c39f74">
-
+* スポット一覧
+<img width="1387" alt="名称未設定２" src="https://github.com/kurota-wow/map_site/assets/77315612/65eef154-ce2f-4a78-911c-d2ca2efc0582">
+* イベントリスト
+<img width="1351" alt="名称未設定3" src="https://github.com/kurota-wow/map_site/assets/77315612/21b9fa75-6110-4a30-89ac-b9f6802c77fd">
+* おすすめルート
+<img width="1377" alt="名称未設定4" src="https://github.com/kurota-wow/map_site/assets/77315612/be9c19ee-e03b-4e7f-9991-687199fca748">
 # 使用した言語・フレームワーク
 - Ruby
 - Ruby on rails
