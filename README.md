@@ -9,13 +9,13 @@
 
 # デザイン・レイアウト
 * トップページ
-<img width="1412" alt="名称未設定" src="https://github.com/kurota-wow/map_site/assets/77315612/0a9d2f9f-1351-48a5-b144-0b81a3c39f74">
+<img width="1412" alt="名称未設定" src="https://github.com/kurota-wow/map_site/assets/77315612/92d4a41e-80c1-4a9e-a67a-3b0ea98502ca">
 * スポット一覧
-<img width="1387" alt="名称未設定２" src="https://github.com/kurota-wow/map_site/assets/77315612/65eef154-ce2f-4a78-911c-d2ca2efc0582">
+<img width="1387" alt="名称未設定２" src="https://github.com/kurota-wow/map_site/assets/77315612/e3e69d1f-b2e9-47b8-9551-5c37717fa2c5">
 * イベントリスト
-<img width="1351" alt="名称未設定3" src="https://github.com/kurota-wow/map_site/assets/77315612/21b9fa75-6110-4a30-89ac-b9f6802c77fd">
+<img width="1351" alt="名称未設定3" src="https://github.com/kurota-wow/map_site/assets/77315612/f30630f7-6b81-4d9f-a733-7ec52ecd4fe7">
 * おすすめルート
-<img width="1377" alt="名称未設定4" src="https://github.com/kurota-wow/map_site/assets/77315612/be9c19ee-e03b-4e7f-9991-687199fca748">
+<img width="1377" alt="名称未設定4" src="https://github.com/kurota-wow/map_site/assets/77315612/9bde52b9-2d17-49b0-82b1-b64587ec0b1b">
 
 # 使用した言語・フレームワーク
 - Ruby
