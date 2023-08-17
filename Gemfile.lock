@@ -452,6 +452,7 @@ DEPENDENCIES
   importmap-rails
   jbuilder
   jquery-rails
+  kaminari
   launchy
   mini_magick
   minitest (= 5.15.0)
