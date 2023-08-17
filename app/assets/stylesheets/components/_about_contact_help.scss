@@ -117,15 +117,24 @@
     text-align: center;
   }
 }
-
+.flash {
+  position: fixed;
+  right: 0;
+  left: 0;
+  z-index: 10;
+}
 .alert {
-  width: 80%;
+  width: 100%;
   padding: 10px;
   margin: 0 auto;
   color: rgb(255, 105, 5);
+  text-align: center;
   background-color: antiquewhite;
-  border: 2px solid rgb(176, 144, 84);
-  border-radius: 16px;
+  border: none;
+}
+.alert-success {
+  color: #708384;
+  background-color: #d6f4f5;
 }
 
 .btn-primary {
