@@ -49,9 +49,9 @@ RSpec.describe "Routing" do
     expect(get: "/routes").to route_to(controller: "route_search", action: "index")
   end
 
-  describe "route for device" do
-    it "routes /users/sign_in to devise/sessions#new" do
-      expect(get: "/users/sign_in").to route_to(controller: "devise/sessions", action: "new")
+  describe "route for user" do
+    it "routes /users/sign_in to users/sessions#new" do
+      expect(get: "/users/sign_in").to route_to(controller: "users/sessions", action: "new")
     end
   end
 
@@ -70,6 +70,20 @@ RSpec.describe "Routing" do
 
     it "routes /admin/spots/1/icon to admin/spots#destroy_icon" do
       expect(delete: "/admin/spots/1/icon").to route_to(controller: "admin/spots", action: "destroy_icon", id: "1")
+    end
+  end
+
+  describe "route for customer" do
+    it "routes /customers/sign_in to customers/sessions#new" do
+      expect(get: "/customers/sign_in").to route_to(controller: "customers/sessions", action: "new")
+    end
+
+    it "routes /customers/sign_out to customers/sessions#destroy" do
+      expect(delete: "/customers/sign_out").to route_to(controller: "customers/sessions", action: "destroy")
+    end
+
+    it "routes /customer/sign_up to customers/registrations#new" do
+      expect(get: "/customers/sign_up").to route_to(controller: "customers/registrations", action: "new")
     end
   end
 end
