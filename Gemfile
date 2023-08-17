@@ -71,6 +71,8 @@ gem 'rails-i18n'
 
 gem 'seed_dump'
 
+gem 'kaminari'
+
 group :development, :test do
   gem "sqlite3", "1.4.2"
   gem "debug", platforms: %i[ mri mingw x64_mingw ]

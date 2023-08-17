@@ -5,7 +5,7 @@ RSpec.describe "URL Helpers" do
     expect(admin_root_path).to eq("/admin")
   end
 
-  it "generates the log in path correctly" do
+  it "generates the user log in path correctly" do
     expect(new_user_session_path).to eq("/users/sign_in")
   end
 
@@ -24,6 +24,22 @@ RSpec.describe "URL Helpers" do
 
     it "generates the routes path correctly" do
       expect(routes_path).to eq("/routes")
+    end
+
+    it "generates the customer registration path correctly" do
+      expect(new_customer_registration_path).to eq("/customers/sign_up")
+    end
+
+    it "generates the customer log in path correctly" do
+      expect(new_customer_session_path).to eq("/customers/sign_in")
+    end
+
+    it "generates the guest sign in path correctly" do
+      expect(customers_guest_sign_in_path).to eq("/customers/guest_sign_in")
+    end
+
+    it "generates the customer log out path correctly" do
+      expect(destroy_customer_session_path).to eq("/customers/sign_out")
     end
   end
 

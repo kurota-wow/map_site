@@ -1,0 +1,6 @@
+<div class="comment-form" id="comment-form">
+  <%= form_with model: @spot_comment, url: [@spot, @spot_comment] do |f| %>
+    <%= f.text_area :content, placeholder: "コメントを入力してください  （５文字以上１４０文字以内）" %>
+    <%= f.submit "コメントする" %>
+  <% end %>
+</div>

@@ -1,0 +1,127 @@
+.customer-page {
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 200px;
+  .customer-menu {
+    width: 30%;
+    padding: 20px 0;
+    margin-right: 30px;
+    ul {
+      li {
+        padding: 20px;
+        font-size: clamp(15px, 2vw, 18px);
+        font-weight: bold;
+        color: white;
+        cursor: pointer;
+        background-color: rgb(167, 225, 238);
+        border-bottom: 1px solid rgb(211, 240, 240);
+        border-radius: 3px;
+      }
+      li:last-child {
+        border: none;
+      }
+      li:hover {
+        background-color: rgb(193, 234, 243);
+      }
+      li.active {
+        color: white;
+        background-color: rgb(157, 204, 216);
+      }
+    }
+  }
+  .customer-details {
+    width: 65%;
+    text-align: left;
+    .message {
+      margin: 5px;
+    }
+    .user-tab {
+      .customer-info {
+        p {
+          padding: 10px;
+          font-size: clamp(17px, 2vw, 22px);
+        }
+        .user-button{
+          display: flex;
+
+          .user-edit-button a{
+            display: inline-block;
+            padding: 15px;
+            margin: 10px;
+            font-size: clamp(17px, 2vw, 22px);
+            color: rgb(251, 131, 71);
+            background-color: rgb(255, 238, 216);
+            border-radius: 32px;
+          }
+          .user-delete-button button{
+            display: inline-block;
+            padding: 15px;
+            margin: 10px;
+            font-size: clamp(17px, 2vw, 22px);
+            color: rgb(251, 74, 71);
+            background-color: rgb(255, 238, 216);
+            border: none;
+            border-radius: 32px;
+          }
+        }
+      }
+    }
+    .comments-tab {
+      .customer-comments-list {
+        p {
+          font-size: clamp(17px, 2vw, 22px);
+          color: rgb(153, 153, 153);
+        }
+        ul {
+          display: flex;
+          justify-content: space-between;
+          padding: 15px 0;
+          li.comment-content {
+            margin-left: 10px;
+            font-size: 18px;
+            span {
+              display: none;
+            }
+          }
+          li.comment-actions {
+            margin: 0 10px;
+            form > button.btn {
+              width: 70px;
+              color: rgb(255, 87, 87);
+              background-color: white;
+              border: none;
+            }
+          }
+        }
+      }
+    }
+    .bookmarks-tab {
+      font-size: clamp(17px, 2vw, 22px);
+      .bookmark-list {
+        display: flex;
+        justify-content: space-between;
+        padding: 10px;
+      }
+      .bookmark-delete {
+        font-size: 17px;
+        font-size: clamp(12px, 2vw, 17px);
+        color: rgb(173, 173, 173);
+      }
+      form {
+        display: inline-block;
+        button.star {
+          color: rgb(69, 69, 62);
+          background: none;
+          border: none;
+        }
+      }
+    }
+  }
+}
+.tab-content {
+  display: none;
+}
+
+.tab-content.active {
+  display: block;
+}

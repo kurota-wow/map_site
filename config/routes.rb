@@ -1,5 +1,21 @@
 Rails.application.routes.draw do
-  devise_for :users
+  get 'customers/show'
+  devise_for :users, controllers: {
+    sessions: 'users/sessions',
+    passwords: 'users/passwords',
+    registrations: 'users/registrations'
+  }
+  devise_for :customers, controllers: {
+    sessions: 'customers/sessions',
+    passwords: 'customers/passwords',
+    registrations: 'customers/registrations'
+  }
+  devise_scope :customer do
+    post 'customers/guest_sign_in', to: 'customers/sessions#guest_sign_in'
+  end
+
+  resources :customers, only: [:show]
+
   namespace :admin do
     resources :events do
       delete :image, on: :member, action: :destroy_image
@@ -15,7 +31,10 @@ Rails.application.routes.draw do
   get  "/about",   to: "static_pages#about"
 
   resources :events, only: [:index, :show]
-  resources :spots, only: [:index, :show]
+  resources :spots, only: [:index, :show] do
+    resources :spot_comments, only: %i[create destroy]
+    resource :bookmarks, only: [:create, :destroy]
+  end
 
   resources :contact, only: [:new, :create]
   post 'contact/confirm', to: 'contact#confirm', as: 'confirm'

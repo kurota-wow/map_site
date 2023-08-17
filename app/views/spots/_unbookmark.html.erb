@@ -1,0 +1,8 @@
+<%= button_to spot_bookmarks_path(spot.id),
+            data: { spot_id: spot.id },
+            id: "bookmark-button",
+            class: 'star',
+            method: :delete,
+            remote: true do %>
+  <i class="fa-solid fa-star"></i>
+<% end %>

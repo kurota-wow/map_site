@@ -1,0 +1,65 @@
+<div class="site-back back">
+  <h1>マイページ</h1>
+  <div class="customer-page">
+		<div class="customer-menu">
+			<ul>
+				<li data-tab="user" class="tab-button active">ユーザー詳細</li>
+				<li data-tab="comments" class="tab-button">コメント一覧</li>
+				<li data-tab="bookmarks" class="tab-button">お気に入りスポット</li>
+			</ul>
+		</div>
+		<div class="customer-details">
+			<span id="mypage-alert-message" class="message"></span>
+			<div class="tab-content user-tab active">
+				<div class="customer-info">
+					<p>ユーザーネーム : <%= @customer.name %></p>
+					<p>メールアドレス : <%= @customer.email %></p>
+
+					<% unless @customer.email == "guest@example.com" %>
+						<div class="user-button">
+							<div class="user-edit-button">
+								<%= link_to '編集する', edit_customer_registration_path %>
+							</div>
+							<div class="user-delete-button">
+								<%= button_to "退会する", customer_registration_path, onclick: "return confirm('本当に退会しますか？');", method: :delete  %>
+							</div>
+						</div>
+					<% end %>
+				</div>
+			</div>
+			<div class="tab-content comments-tab">
+				<div class="customer-comments-list" data-customer-id="<%= current_customer.id %>" id="customer-comments-container">
+					<% if @customer_comments.present? %>
+						<% comments_by_spot = @customer_comments.group_by { |comment| comment.spot } %>
+						<% comments_by_spot.each do |spot, comments| %>
+							<p><%= link_to spot.name, spot %>についてのコメント</p>
+							<% comments.each do |comment| %>
+								<%= render partial: 'spot_comments/spot_comment', locals: { spot_comment: comment, spot: spot } %>
+							<% end %>
+						<% end %>
+						<%= paginate @customer_comments, remote: true %>
+					<% else %>
+						<p>スポットへのコメントはありません。</p>
+					<% end %>
+				</div>
+			</div>
+			<div class="tab-content bookmarks-tab">
+				<div class="customer-bookmark-list" id="customer-bookmark" data-customer-id="<%= current_customer.id %>">
+					<% if @bookmark_list.present? %>
+						<% @bookmark_list.each do |bookmark| %>
+							<div class="bookmark-list">
+								<p>
+									<%= link_to bookmark.name, spot_path(bookmark) %>
+								</p>
+								<span class="bookmark-delete">お気に入り解除:<%= render 'spots/bookmark_button', spot: bookmark %></span>
+							</div>
+						<% end %>
+						<%= paginate @bookmark_list, remote: true %>
+					<% else %>
+						<p>お気に入り登録したスポットはありません。</p>
+					<% end %>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

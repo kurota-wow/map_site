@@ -6,6 +6,12 @@ class Spot < ApplicationRecord
   validates :address, presence: true
   validates :city, presence: true
   validates :category, presence: true
+
+  has_many :spot_comments, dependent: :destroy
+
+  has_many :bookmarks, dependent: :destroy
+  has_many :bookmark_customers, through: :bookmarks, source: :customer
+
   has_one_attached :icon do |attachable|
     attachable.variant :thumb, resize_to_limit: [300, 300]
   end

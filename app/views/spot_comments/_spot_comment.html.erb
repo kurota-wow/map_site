@@ -1,0 +1,11 @@
+<ul class="comment" id="comment-body">
+  <li class="comment-content">
+    <span class="customer-name"><%= spot_comment.customer.name %></span>
+    <%= spot_comment.content %>
+  </li>
+  <li class="comment-actions">
+    <% if current_customer && current_customer.own?(spot_comment) %>
+      <%= button_to "削除する", spot_spot_comment_path(spot, spot_comment), method: :delete, class: "btn" , remote: true , data: { 'spot-id': spot.id } %>
+    <% end %>
+  </li>
+</ul>

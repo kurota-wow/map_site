@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_07_13_113035) do
+ActiveRecord::Schema[7.0].define(version: 2023_08_16_152337) do
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -39,6 +39,33 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_13_113035) do
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
   end
 
+  create_table "bookmarks", force: :cascade do |t|
+    t.integer "customer_id", null: false
+    t.integer "spot_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["customer_id", "spot_id"], name: "index_bookmarks_on_customer_id_and_spot_id", unique: true
+    t.index ["customer_id"], name: "index_bookmarks_on_customer_id"
+    t.index ["spot_id"], name: "index_bookmarks_on_spot_id"
+  end
+
+  create_table "customers", force: :cascade do |t|
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "name", null: false
+    t.string "confirmation_token"
+    t.datetime "confirmed_at"
+    t.datetime "confirmation_sent_at"
+    t.string "unconfirmed_email"
+    t.index ["email"], name: "index_customers_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_customers_on_reset_password_token", unique: true
+  end
+
   create_table "events", force: :cascade do |t|
     t.text "content"
     t.string "name"
@@ -48,6 +75,16 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_13_113035) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "date"
+  end
+
+  create_table "spot_comments", force: :cascade do |t|
+    t.text "content", null: false
+    t.integer "customer_id", null: false
+    t.integer "spot_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["customer_id"], name: "index_spot_comments_on_customer_id"
+    t.index ["spot_id"], name: "index_spot_comments_on_spot_id"
   end
 
   create_table "spots", force: :cascade do |t|
@@ -77,4 +114,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_13_113035) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "bookmarks", "customers"
+  add_foreign_key "bookmarks", "spots"
+  add_foreign_key "spot_comments", "customers"
+  add_foreign_key "spot_comments", "spots"
 end

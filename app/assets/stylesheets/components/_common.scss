@@ -170,8 +170,8 @@ h2 {
 /* login form */
 .box {
   width: 350px;
-  height: 350px;
   margin: 60px auto 0;
+  margin-bottom: 150px;
   background-color: #fff;
   border: 1px #ddd solid;
   border-radius: 4px;
@@ -179,7 +179,6 @@ h2 {
 
 .box-inner {
   padding: 20px 26px;
-
   h1 {
     padding-bottom: 4px;
     margin-bottom: 10px;
@@ -188,30 +187,27 @@ h2 {
     line-height: 1.2;
     color: #111;
   }
-
-  .box-email {
-    margin-bottom: 13px;
+  h2 {
+    font-size: 15px;
   }
-
-  .box-password {
-    margin-bottom: 22px;
+  .box-email, .box-name, .box-password{
+    margin-bottom: 13px;
   }
 }
 
-.box-email label, .box-password label {
+.box-email label, .box-password label, .box-name label{
   padding-bottom: 2px;
   padding-left: 2px;
   font-size: 13px;
   font-weight: 700;
 }
 
-.box-email input[type="email"], .box-password input[type="password"] {
+.box-name input[type="text"], .box-email input[type="email"], .box-password input[type="password"] {
   box-sizing: border-box;
   width: 100%;
   height: 31px;
   padding: 0 7px;
   border: 1px solid #a6a6a6;
-  border-style: none;
   border-radius: 3px;
   box-shadow: 0 1px 0 rgba(0,0,0,.07) inset;
 }
@@ -291,4 +287,32 @@ h2 {
       height: 40px;
       opacity: 1;
   }
+}
+
+/* ページネーション */
+
+.pagination{
+  display: flex;
+  justify-content: center;
+  width: 50%;
+  margin: 20px auto;
+  span{
+      width: 50px;
+      text-align: center;
+      :hover{
+          background-color:#f3f3f3;
+      }
+      a{
+          display: block;
+          width: 100%;
+          height: 100%;
+          :hover{
+              background-color: #f3f3f3;
+            }
+      }
+  }
+}
+
+.current{
+  color: #00c3ff;
 }

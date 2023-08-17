@@ -17,7 +17,6 @@
       <% end %>
     </div>
   </div>
-
   <div class="spot-content-box">
     <% @spots.each do |spot| %>
       <div class="spot-contents">
@@ -28,6 +27,13 @@
             <p class="img"><%= image_tag("no-image.jpg", alt: "No image", style: "width: 300px; height: 300px;" ) %></p>
           <% end %>
           <p class="name"><%= spot.name %></p>
+          <div class="bookmark-message", id="message-container-<%= spot.id %>"></div>
+          <span class="triangle"></span>
+          <div id="bookmark-button-container-<%= spot.id %>">
+            <% if customer_signed_in? %>
+              <%= render 'spots/bookmark_button', spot:spot %>
+            <% end %>
+          </div>
         <% end %>
       </div>
     <% end %>
