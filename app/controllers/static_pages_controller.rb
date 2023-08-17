@@ -8,6 +8,10 @@ class StaticPagesController < ApplicationController
         send_data image_data, type: "image/jpeg", disposition: "inline"
       end
     end
+    @top_spots = Spot.joins(:bookmarks)
+      .group('spots.id')
+      .order('COUNT(bookmarks.id) DESC')
+      .limit(3)
   end
 
   def help
@@ -15,4 +19,5 @@ class StaticPagesController < ApplicationController
 
   def about
   end
+
 end

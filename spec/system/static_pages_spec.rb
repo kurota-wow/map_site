@@ -38,7 +38,6 @@ RSpec.describe "StaticPages" do
     end
 
     it "show carousel" do
-      visit current_path
       execute_script('window.scrollBy(0,10000)')
       expect(page).to have_selector('.slide img[alt="青島"]')
       expect(page).to have_selector('.next')
@@ -54,7 +53,7 @@ RSpec.describe "StaticPages" do
 
     it "click and go to top" do
       visit root_path
-      execute_script('window.scrollBy(0,100)')
+      execute_script('window.scrollBy(0,50)')
       page.find('.gotop').click
       sleep 5
       expect(page.evaluate_script("$(window).scrollTop()")).to eq(0)
@@ -74,6 +73,41 @@ RSpec.describe "StaticPages" do
       visit about_path
       expect(page).to have_link "お問い合わせ", href: new_contact_path
       expect(page).to have_link "よくある質問", href: help_path
+    end
+
+    context "with ranking" do
+      let!(:top_spots) { create_list(:spot, 3) }
+      let!(:other_spot) { create(:spot, name: "spot") }
+      let!(:customer) { create(:customer) }
+      let!(:other_customer) { create(:customer, email: "other@example.com") }
+
+      before do
+        top_spots.each do |spot|
+          create(:bookmark, spot:, customer:)
+        end
+        create(:bookmark, spot: other_spot, customer:)
+        visit root_path
+        execute_script('window.scrollBy(0,10000)')
+      end
+
+      it "displays ranking section" do
+        expect(page).to have_selector('.ranking')
+      end
+
+      it "displays top spots in ranking" do
+        top_spots.each do |spot|
+          expect(page).to have_text(spot.name)
+          expect(page).to have_link("", href: spot_path(spot))
+        end
+      end
+
+      it "displays update ranking" do
+        expect(page).not_to have_text(other_spot.name)
+        create(:bookmark, spot: other_spot, customer: other_customer)
+        visit root_path
+        execute_script('window.scrollBy(0,10000)')
+        expect(page).to have_text(other_spot.name)
+      end
     end
   end
 
