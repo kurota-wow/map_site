@@ -1,0 +1,5 @@
+<div class="comment-list">
+  <% spot_comments.each do |spot_comment| %>
+    <%= render partial: 'spot_comments/spot_comment', locals: { spot_comment: spot_comment, spot: @spot } %>
+  <% end %>
+</div>

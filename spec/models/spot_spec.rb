@@ -30,6 +30,12 @@ RSpec.describe Spot do
     end
   end
 
+  describe 'associations' do
+    it { is_expected.to have_many(:spot_comments).dependent(:destroy) }
+    it { is_expected.to have_many(:bookmarks).dependent(:destroy) }
+    it { is_expected.to have_many(:bookmark_customers).through(:bookmarks).source(:customer) }
+  end
+
   describe "return search results from a string" do
     let!(:gourmet_spot) { create(:spot, name: "sample1", address: "Ehime", city: "1", category: "グルメ") }
     let!(:leisure_spot) { create(:spot, name: "sample2", address: "Dougo", city: "1", category: "レジャー") }

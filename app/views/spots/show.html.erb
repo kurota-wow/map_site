@@ -1,16 +1,35 @@
 <% provide(:title, "スポット詳細") %>
-
 <div class="spot back">
   <ul class="spot-details spot-box">
-    <li class="spot-name"><%= @spot.name %></li>
+    <li class="spot-name">
+      <div class="bookmarked-message", id="bookmarked-message-container-<%= @spot.id %>"></div>
+      <%= @spot.name %>
+      <span id="bookmarked-button-container-<%= @spot.id %>">
+        <% if customer_signed_in? %>
+          <%= render 'spots/bookmark_button', spot:@spot %>
+        <% end %>
+      </span>
+    </li>
     <li class="spot-address"><%= @spot.address %></li>
     <li class="spot-content"><%= @spot.content %></li>
     <% if @spot.url.present? %>
       <li class="spot-url" ><%= link_to "詳しくはこちら", @spot.url, target: "_blank", rel: "noopener"%></li>
     <% end %>
-    <li><%= link_to "←戻る", '#', onclick: "history.back()", class: "back-to" %></li>
+    <li><%= link_to "←戻る", :back, class: "back-to" %></li>
   </ul>
   <div id="map"></div>
+  <span id="alert-message" class="message"></span>
+  <div class="comment-area">
+    <div id="comments-container">
+      <h3 class="comment-title">コメント一覧</h3>
+      <%= render 'spot_comments/spot_comments', { spot: @spot,spot_comments: @spot_comments } %>
+      <%= paginate @spot_comments, remote: true %>
+    </div>
+    <% if customer_signed_in? %>
+      <h3 class="comment-title">コメントを投稿する</h3>
+      <%= render 'spot_comments/form', { spot: @spot, spot_comment: @spot_comment } %>
+    <% end %>
+  </div>
 </div>
 
 <script type="text/javascript">
