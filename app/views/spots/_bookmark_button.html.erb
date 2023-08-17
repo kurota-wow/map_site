@@ -1,0 +1,5 @@
+<% if current_customer.bookmarks.find_by(spot_id: spot.id) %>
+  <%= render 'spots/unbookmark', { spot: spot } %>
+<% else %>
+  <%= render 'spots/bookmark', { spot: spot } %>
+<% end %>
