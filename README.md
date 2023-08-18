@@ -38,11 +38,10 @@
 - 絞り込み検索機能
 
 # テスト（Rspec)
-- RSpec
--- model spec
--- request spec
--- routing spec
--- system spec
+- model spec
+- request spec
+- routing spec
+- system spec
 
 # ページの詳細
 ## トップページ<br>
